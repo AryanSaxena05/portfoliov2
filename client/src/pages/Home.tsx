@@ -2,46 +2,50 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   useEffect(() => {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    // Function to handle smooth scrolling
+    const handleSmoothScroll = (targetId: string) => {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // Offset for fixed header
+          behavior: 'smooth'
+        });
+      }
+    };
+    
+    // Attach click handlers for anchor links
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId) {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // Offset for fixed header
-              behavior: 'smooth'
-            });
-          }
-        }
+        const href = this.getAttribute('href');
+        if (href) handleSmoothScroll(href);
       });
     });
     
     // Scroll to the hash on initial load
     if (window.location.hash) {
-      const targetElement = document.querySelector(window.location.hash);
-      if (targetElement) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: targetElement.getBoundingClientRect().top + window.scrollY - 80,
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+      setTimeout(() => {
+        handleSmoothScroll(window.location.hash);
+      }, 100);
     }
 
+    // Clean-up function
     return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', function (e) {});
+      // Since we can't reference the exact handler function, we'll just clone and replace
+      // to remove all attached event listeners (a common pattern for cleanup)
+      anchors.forEach(anchor => {
+        const newAnchor = anchor.cloneNode(true);
+        if (anchor.parentNode) {
+          anchor.parentNode.replaceChild(newAnchor, anchor);
+        }
       });
     };
   }, []);
@@ -52,6 +56,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <ProjectsSection />
+        <ExperienceSection />
         <AboutSection />
         <ContactSection />
       </main>

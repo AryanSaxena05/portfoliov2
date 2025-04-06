@@ -38,43 +38,58 @@ export default function Header() {
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               <li>
-                <Link href="/#home">
-                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                <Link 
+                  href="/#home"
+                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
                     location === "/#home" ? "text-autumn" : ""
-                  }`}>
-                    Home
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  }`}
+                >
+                  Home
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/#projects">
-                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                <Link 
+                  href="/#projects"
+                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
                     location === "/#projects" ? "text-autumn" : ""
-                  }`}>
-                    Projects
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  }`}
+                >
+                  Projects
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/#about">
-                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                <Link 
+                  href="/#experience"
+                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                    location === "/#experience" ? "text-autumn" : ""
+                  }`}
+                >
+                  Experience
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#about"
+                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
                     location === "/#about" ? "text-autumn" : ""
-                  }`}>
-                    About
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  }`}
+                >
+                  About
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/#contact">
-                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                <Link 
+                  href="/#contact"
+                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
                     location === "/#contact" ? "text-autumn" : ""
-                  }`}>
-                    Contact
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  }`}
+                >
+                  Contact
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
             </ul>
@@ -100,43 +115,48 @@ export default function Header() {
       <div className={`md:hidden bg-white pb-4 px-4 border-t ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <ul className="space-y-3">
           <li>
-            <Link href="/#home">
-              <a 
-                className="block py-2 text-steel hover:text-autumn transition-colors"
-                onClick={closeMobileMenu}
-              >
-                Home
-              </a>
+            <Link 
+              href="/#home"
+              className="block py-2 text-steel hover:text-autumn transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Home
             </Link>
           </li>
           <li>
-            <Link href="/#projects">
-              <a 
-                className="block py-2 text-steel hover:text-autumn transition-colors"
-                onClick={closeMobileMenu}
-              >
-                Projects
-              </a>
+            <Link 
+              href="/#projects"
+              className="block py-2 text-steel hover:text-autumn transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Projects
             </Link>
           </li>
           <li>
-            <Link href="/#about">
-              <a 
-                className="block py-2 text-steel hover:text-autumn transition-colors"
-                onClick={closeMobileMenu}
-              >
-                About
-              </a>
+            <Link 
+              href="/#experience"
+              className="block py-2 text-steel hover:text-autumn transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Experience
             </Link>
           </li>
           <li>
-            <Link href="/#contact">
-              <a 
-                className="block py-2 text-steel hover:text-autumn transition-colors"
-                onClick={closeMobileMenu}
-              >
-                Contact
-              </a>
+            <Link 
+              href="/#about"
+              className="block py-2 text-steel hover:text-autumn transition-colors"
+              onClick={closeMobileMenu}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/#contact"
+              className="block py-2 text-steel hover:text-autumn transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Contact
             </Link>
           </li>
         </ul>
