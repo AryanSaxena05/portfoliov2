@@ -98,29 +98,29 @@ export default function ContactSection() {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 opacity-0 translate-y-5 transition-all duration-700"
+      className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 opacity-0 translate-y-5 transition-all duration-700"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-autumn to-amber-600 bg-clip-text text-transparent">Get In Touch</h2>
-            <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            <p className="max-w-2xl mx-auto text-gray-600">
               Have a project in mind or want to collaborate? Feel free to reach out!
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
             <div className="md:col-span-2 space-y-8">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <h3 className="text-xl font-semibold mb-4 dark:text-white">Contact Information</h3>
+              <div className="bg-white p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <div className="text-autumn mt-1 mr-4">
                       <Mail className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium dark:text-white">Email</p>
-                      <a href="mailto:saxen117@purdue.edu" className="text-gray-600 dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-colors">
+                      <p className="font-medium">Email</p>
+                      <a href="mailto:saxen117@purdue.edu" className="text-gray-600 hover:text-autumn transition-colors">
                         saxen117@purdue.edu
                       </a>
                     </div>
@@ -131,8 +131,8 @@ export default function ContactSection() {
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium dark:text-white">Phone</p>
-                      <a href="tel:+17657757415" className="text-gray-600 dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-colors">
+                      <p className="font-medium">Phone</p>
+                      <a href="tel:+17657757415" className="text-gray-600 hover:text-autumn transition-colors">
                         +1 (765) 775-7415
                       </a>
                     </div>
@@ -143,15 +143,15 @@ export default function ContactSection() {
                       <MapPin className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-medium dark:text-white">Location</p>
-                      <p className="text-gray-600 dark:text-gray-300">West Lafayette, IN</p>
+                      <p className="font-medium">Location</p>
+                      <p className="text-gray-600">West Lafayette, IN</p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <h3 className="text-xl font-semibold mb-6 dark:text-white">Connect</h3>
+              <div className="bg-white p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                <h3 className="text-xl font-semibold mb-6">Connect</h3>
                 <div className="flex space-x-4">
                   <a 
                     href="https://www.linkedin.com/in/aryan-saxena-7726b1218/" 
@@ -190,7 +190,7 @@ export default function ContactSection() {
             </div>
             
             <div className="md:col-span-3">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transform transition-all duration-500 hover:shadow-xl">
+              <div className="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-500 hover:shadow-xl">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
@@ -198,12 +198,12 @@ export default function ContactSection() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="dark:text-white">Name</FormLabel>
+                          <FormLabel>Name</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Your name" 
                               {...field} 
-                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600"
+                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300"
                             />
                           </FormControl>
                           <FormMessage />
@@ -216,12 +216,12 @@ export default function ContactSection() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="dark:text-white">Email</FormLabel>
+                          <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Your email address" 
                               {...field} 
-                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600"
+                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300"
                             />
                           </FormControl>
                           <FormMessage />
@@ -234,12 +234,12 @@ export default function ContactSection() {
                       name="subject"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="dark:text-white">Subject</FormLabel>
+                          <FormLabel>Subject</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Subject" 
                               {...field} 
-                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600"
+                              className="focus:ring-2 focus:ring-autumn/50 transition-all duration-300"
                             />
                           </FormControl>
                           <FormMessage />
@@ -252,11 +252,11 @@ export default function ContactSection() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="dark:text-white">Message</FormLabel>
+                          <FormLabel>Message</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Your message" 
-                              className="min-h-[120px] focus:ring-2 focus:ring-autumn/50 transition-all duration-300 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600" 
+                              className="min-h-[120px] focus:ring-2 focus:ring-autumn/50 transition-all duration-300" 
                               {...field} 
                             />
                           </FormControl>
@@ -276,7 +276,7 @@ export default function ContactSection() {
                 </Form>
                 
                 {isSuccess && (
-                  <div className="mt-6 p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-lg animate-pulse">
+                  <div className="mt-6 p-4 bg-green-100 text-green-800 rounded-lg animate-pulse">
                     <p className="font-medium">Thank you for your message!</p>
                     <p>I'll get back to you as soon as possible.</p>
                   </div>

@@ -12,27 +12,16 @@
     --jet: 28, 28, 28;      /* #1C1C1C */
   }
 
-  .dark {
-    --background: 28, 28, 28;
-    --foreground: 245, 245, 245;
-  }
-
   * {
     @apply border-border;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground transition-colors duration-300;
+    @apply font-sans antialiased bg-background text-foreground;
   }
 
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
-  }
-
-  /* Dark mode transition */
-  body, div, section, header, nav, footer, article, 
-  h1, h2, h3, h4, h5, h6, p, span, a, button {
-    @apply transition-colors duration-300;
   }
 }

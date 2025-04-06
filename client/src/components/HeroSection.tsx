@@ -55,7 +55,7 @@ export default function HeroSection() {
               <h3 className="text-xl sm:text-2xl font-light mb-6 bg-gradient-to-r from-blue-600 to-teal-500 text-transparent bg-clip-text">
                 Data-driven collaborator, crafting innovative solutions to drive business impact!
               </h3>
-              <p className="text-lg text-steel dark:text-gray-300 mb-8 leading-relaxed">
+              <p className="text-lg text-steel mb-8 leading-relaxed">
                 I'm a graduate student at Purdue University, studying MS in Business Analytics and 
                 Information Management with experience in consulting, analytics, and data science.
               </p>
@@ -70,18 +70,18 @@ export default function HeroSection() {
             </div>
           </div>
           
-          <div className="mt-12 pt-10 border-t border-sky dark:border-gray-700 grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
+          <div className="mt-12 pt-10 border-t border-sky grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
             <div className="transform transition-transform duration-300 hover:scale-110">
-              <h4 className="font-semibold text-lg text-charcoal dark:text-gray-200">10+</h4>
-              <p className="text-steel dark:text-gray-400">Projects Completed</p>
+              <h4 className="font-semibold text-lg text-charcoal">10+</h4>
+              <p className="text-steel">Projects Completed</p>
             </div>
             <div className="transform transition-transform duration-300 hover:scale-110">
-              <h4 className="font-semibold text-lg text-charcoal dark:text-gray-200">1+</h4>
-              <p className="text-steel dark:text-gray-400">Years Experience</p>
+              <h4 className="font-semibold text-lg text-charcoal">1+</h4>
+              <p className="text-steel">Years Experience</p>
             </div>
             <div className="transform transition-transform duration-300 hover:scale-110">
-              <h4 className="font-semibold text-lg text-charcoal dark:text-gray-200">2</h4>
-              <p className="text-steel dark:text-gray-400">Scholarships</p>
+              <h4 className="font-semibold text-lg text-charcoal">2</h4>
+              <p className="text-steel">Scholarships</p>
             </div>
           </div>
         </div>

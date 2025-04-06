@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,8 +22,8 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed w-full bg-white dark:bg-gray-900 z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-sm bg-opacity-95 dark:bg-opacity-95" : ""
+      className={`fixed w-full bg-white z-50 transition-all duration-300 ${
+        isScrolled ? "shadow-sm bg-opacity-95" : ""
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,8 +40,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#home"
-                  className={`relative nav-link group text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-all duration-300 ${
-                    location === "/#home" ? "text-autumn dark:text-autumn font-medium" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#home" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Home
@@ -52,8 +51,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#projects"
-                  className={`relative nav-link group text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-all duration-300 ${
-                    location === "/#projects" ? "text-autumn dark:text-autumn font-medium" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#projects" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   My Work
@@ -63,8 +62,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#experience"
-                  className={`relative nav-link group text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-all duration-300 ${
-                    location === "/#experience" ? "text-autumn dark:text-autumn font-medium" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#experience" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Professional Experience
@@ -74,8 +73,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#about"
-                  className={`relative nav-link group text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-all duration-300 ${
-                    location === "/#about" ? "text-autumn dark:text-autumn font-medium" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#about" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   About Me
@@ -85,8 +84,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#contact"
-                  className={`relative nav-link group text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn transition-all duration-300 ${
-                    location === "/#contact" ? "text-autumn dark:text-autumn font-medium" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#contact" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Get In Touch
@@ -96,16 +95,10 @@ export default function Header() {
             </ul>
           </nav>
           
-          {/* Theme Toggle */}
-          <div className="hidden md:flex items-center ml-4">
-            <ThemeToggle />
-          </div>
-          
           {/* Mobile Navigation Button */}
           <div className="flex items-center md:hidden">
-            <ThemeToggle />
             <button 
-              className="text-gray-700 dark:text-gray-300 focus:outline-none ml-2" 
+              className="text-gray-700 focus:outline-none ml-2" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -119,13 +112,13 @@ export default function Header() {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-white dark:bg-gray-900 pb-4 px-4 border-t dark:border-gray-700 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden bg-white pb-4 px-4 border-t ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <ul className="space-y-3">
           <li>
             <Link 
               href="/#home"
-              className={`block py-2 px-3 rounded-md text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn hover:bg-autumn/10 dark:hover:bg-autumn/20 transition-all duration-300 transform hover:translate-x-1 ${
-                location === "/#home" ? "font-medium text-autumn dark:text-autumn bg-autumn/5 dark:bg-autumn/10" : ""
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#home" ? "font-medium text-autumn bg-autumn/5" : ""
               }`}
               onClick={closeMobileMenu}
             >
@@ -135,8 +128,8 @@ export default function Header() {
           <li>
             <Link 
               href="/#projects"
-              className={`block py-2 px-3 rounded-md text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn hover:bg-autumn/10 dark:hover:bg-autumn/20 transition-all duration-300 transform hover:translate-x-1 ${
-                location === "/#projects" ? "font-medium text-autumn dark:text-autumn bg-autumn/5 dark:bg-autumn/10" : ""
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#projects" ? "font-medium text-autumn bg-autumn/5" : ""
               }`}
               onClick={closeMobileMenu}
             >
@@ -146,8 +139,8 @@ export default function Header() {
           <li>
             <Link 
               href="/#experience"
-              className={`block py-2 px-3 rounded-md text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn hover:bg-autumn/10 dark:hover:bg-autumn/20 transition-all duration-300 transform hover:translate-x-1 ${
-                location === "/#experience" ? "font-medium text-autumn dark:text-autumn bg-autumn/5 dark:bg-autumn/10" : ""
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#experience" ? "font-medium text-autumn bg-autumn/5" : ""
               }`}
               onClick={closeMobileMenu}
             >
@@ -157,8 +150,8 @@ export default function Header() {
           <li>
             <Link 
               href="/#about"
-              className={`block py-2 px-3 rounded-md text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn hover:bg-autumn/10 dark:hover:bg-autumn/20 transition-all duration-300 transform hover:translate-x-1 ${
-                location === "/#about" ? "font-medium text-autumn dark:text-autumn bg-autumn/5 dark:bg-autumn/10" : ""
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#about" ? "font-medium text-autumn bg-autumn/5" : ""
               }`}
               onClick={closeMobileMenu}
             >
@@ -168,8 +161,8 @@ export default function Header() {
           <li>
             <Link 
               href="/#contact"
-              className={`block py-2 px-3 rounded-md text-steel dark:text-gray-300 hover:text-autumn dark:hover:text-autumn hover:bg-autumn/10 dark:hover:bg-autumn/20 transition-all duration-300 transform hover:translate-x-1 ${
-                location === "/#contact" ? "font-medium text-autumn dark:text-autumn bg-autumn/5 dark:bg-autumn/10" : ""
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#contact" ? "font-medium text-autumn bg-autumn/5" : ""
               }`}
               onClick={closeMobileMenu}
             >
