@@ -1,0 +1,146 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { Menu, X } from "lucide-react";
+
+export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <header 
+      className={`fixed w-full bg-white z-50 transition-shadow duration-300 ${
+        isScrolled ? "shadow-sm bg-opacity-95" : ""
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <Link href="/">
+              <h1 className="text-xl font-bold text-primary cursor-pointer">John Doe</h1>
+            </Link>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex space-x-8">
+              <li>
+                <Link href="/#home">
+                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
+                    location === "/#home" ? "text-primary" : ""
+                  }`}>
+                    Home
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#projects">
+                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
+                    location === "/#projects" ? "text-primary" : ""
+                  }`}>
+                    Projects
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about">
+                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
+                    location === "/#about" ? "text-primary" : ""
+                  }`}>
+                    About
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact">
+                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
+                    location === "/#contact" ? "text-primary" : ""
+                  }`}>
+                    Contact
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          
+          {/* Mobile Navigation Button */}
+          <div className="md:hidden">
+            <button 
+              className="text-gray-700 focus:outline-none" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Mobile Menu */}
+      <div className={`md:hidden bg-white pb-4 px-4 border-t ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/#home">
+              <a 
+                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                onClick={closeMobileMenu}
+              >
+                Home
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#projects">
+              <a 
+                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                onClick={closeMobileMenu}
+              >
+                Projects
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#about">
+              <a 
+                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                onClick={closeMobileMenu}
+              >
+                About
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#contact">
+              <a 
+                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                onClick={closeMobileMenu}
+              >
+                Contact
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+}
