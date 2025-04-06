@@ -1,10 +1,16 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, Github, LineChart, Database, PanelRight, Layers, BarChart3, FileSpreadsheet, Cloud, Monitor, Server, Activity, Hand } from "lucide-react";
-import { SiPython, SiR, SiTableau, SiMysql, SiPostgresql, SiGooglecloud, 
-         SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiGit, 
-         SiJupyter, SiApachespark, SiApachehadoop, SiDocker, 
-         SiAmazon } from "react-icons/si";
+import { 
+  FileText, Linkedin, Github, LineChart, Database, PanelRight, Layers, 
+  BarChart3, FileSpreadsheet, Cloud, Monitor, Server, Activity,
+  Mail as MailIcon, BookOpen as BookOpenIcon
+} from "lucide-react";
+import { 
+  SiPython, SiR, SiTableau, SiMysql, SiPostgresql, SiGooglecloud, 
+  SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiGit, 
+  SiJupyter, SiApachespark, SiApachehadoop, SiDocker, 
+  SiAmazon 
+} from "react-icons/si";
 
 type Skill = {
   name: string;
@@ -26,6 +32,7 @@ const skills: Skill[] = [
   { name: "Excel", category: 'tool', size: 'lg', icon: <FileSpreadsheet /> },
   { name: "Git", category: 'tool', size: 'md', icon: <SiGit /> },
   { name: "Jupyter", category: 'tool', size: 'md', icon: <SiJupyter /> },
+  { name: "SAS EM", category: 'tool', size: 'lg', icon: <Activity /> },
   
   // Databases
   { name: "MySQL", category: 'database', size: 'lg', icon: <SiMysql /> },
@@ -46,14 +53,37 @@ const skills: Skill[] = [
   { name: "Spark", category: 'platform', size: 'md', icon: <SiApachespark /> },
   { name: "Hadoop", category: 'platform', size: 'sm', icon: <SiApachehadoop /> },
   
-  // Other skills (using Lucide icons when no specific icon is available)
+  // Analytics & Business Skills (extracted from project descriptions)
   { name: "Data Analysis", category: 'framework', size: 'xl', icon: <LineChart /> },
   { name: "Business Analytics", category: 'framework', size: 'xl', icon: <BarChart3 /> },
-  { name: "Machine Learning", category: 'framework', size: 'lg', icon: <Layers /> },
-  { name: "Docker", category: 'tool', size: 'sm', icon: <SiDocker /> },
+  { name: "Machine Learning", category: 'framework', size: 'xl', icon: <Layers /> },
   { name: "Data Visualization", category: 'framework', size: 'lg', icon: <PanelRight /> },
+  { name: "Statistical Analysis", category: 'framework', size: 'lg', icon: <Activity /> },
+  { name: "Exploratory Data Analysis", category: 'framework', size: 'lg', icon: <PanelRight /> },
+  { name: "Predictive Modeling", category: 'framework', size: 'lg', icon: <LineChart /> },
+  { name: "Data Mining", category: 'framework', size: 'lg', icon: <Database /> },
+  { name: "K-means Clustering", category: 'framework', size: 'md', icon: <Layers /> },
+  { name: "Regression Analysis", category: 'framework', size: 'md', icon: <LineChart /> },
+  
+  // Domain Knowledge
+  { name: "Education Analytics", category: 'platform', size: 'md', icon: <BookOpenIcon /> },
+  { name: "Entertainment Analytics", category: 'platform', size: 'md', icon: <Monitor /> },
+  { name: "Market Analysis", category: 'platform', size: 'md', icon: <BarChart3 /> },
+  
+  // Project Skills
+  { name: "Project Planning", category: 'platform', size: 'md', icon: <FileText /> },
+  { name: "Strategic Communications", category: 'platform', size: 'md', icon: <MailIcon /> },
+  { name: "Project Management", category: 'platform', size: 'lg', icon: <Layers /> },
+  { name: "Strategy Consulting", category: 'platform', size: 'lg', icon: <FileText /> },
+  { name: "Value Chain Optimization", category: 'platform', size: 'md', icon: <Activity /> },
+  { name: "Cost Reduction", category: 'platform', size: 'md', icon: <Activity /> },
+  
+  // Technical Skills
+  { name: "Docker", category: 'tool', size: 'sm', icon: <SiDocker /> },
+  { name: "API Integration", category: 'framework', size: 'md', icon: <Server /> },
   { name: "Microsoft Office", category: 'platform', size: 'md', icon: <FileText /> },
-  { name: "Cloud Computing", category: 'cloud', size: 'lg', icon: <Cloud /> }
+  { name: "Cloud Computing", category: 'cloud', size: 'lg', icon: <Cloud /> },
+  { name: "Data Processing", category: 'framework', size: 'md', icon: <Database /> }
 ];
 
 export default function AboutSection() {
@@ -187,18 +217,18 @@ export default function AboutSection() {
               </div>
               
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
                   <a href="/resume/Aryan_Saxena_5_4_BA_NAW.pdf" target="_blank" rel="noopener noreferrer">
                     <FileText className="mr-2 h-4 w-4" /> Download Resume
                   </a>
                 </Button>
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
-                  <a href="https://www.linkedin.com/in/aryan-saxena-purdue/" target="_blank" rel="noopener noreferrer">
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://www.linkedin.com/in/aryan-saxena-7726b1218/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-4 w-4" /> LinkedIn Profile
                   </a>
                 </Button>
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
-                  <a href="https://github.com/aryansaxena" target="_blank" rel="noopener noreferrer">
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://github.com/AryanSaxena05" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> GitHub
                   </a>
                 </Button>

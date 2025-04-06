@@ -23,7 +23,7 @@ export default function Home() {
     // Attach click handlers for anchor links
     const anchors = document.querySelectorAll('a[href^="#"]');
     anchors.forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
         const href = this.getAttribute('href');
         if (href) handleSmoothScroll(href);

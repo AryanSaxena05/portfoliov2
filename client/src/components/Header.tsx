@@ -30,7 +30,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-xl font-bold text-charcoal cursor-pointer">Aryan Saxena</h1>
+              <h1 className="text-xl font-bold cursor-pointer bg-gradient-to-r from-autumn to-amber-600 text-transparent bg-clip-text transition-all duration-300 transform hover:scale-105">Aryan Saxena</h1>
             </Link>
           </div>
           
@@ -40,8 +40,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#home"
-                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
-                    location === "/#home" ? "text-autumn" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#home" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Home
@@ -51,8 +51,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#projects"
-                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
-                    location === "/#projects" ? "text-autumn" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#projects" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Projects
@@ -62,8 +62,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#experience"
-                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
-                    location === "/#experience" ? "text-autumn" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#experience" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Experience
@@ -73,8 +73,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#about"
-                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
-                    location === "/#about" ? "text-autumn" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#about" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   About
@@ -84,8 +84,8 @@ export default function Header() {
               <li>
                 <Link 
                   href="/#contact"
-                  className={`relative nav-link text-steel hover:text-autumn transition-colors ${
-                    location === "/#contact" ? "text-autumn" : ""
+                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 ${
+                    location === "/#contact" ? "text-autumn font-medium" : ""
                   }`}
                 >
                   Contact
@@ -117,7 +117,9 @@ export default function Header() {
           <li>
             <Link 
               href="/#home"
-              className="block py-2 text-steel hover:text-autumn transition-colors"
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#home" ? "font-medium text-autumn bg-autumn/5" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Home
@@ -126,7 +128,9 @@ export default function Header() {
           <li>
             <Link 
               href="/#projects"
-              className="block py-2 text-steel hover:text-autumn transition-colors"
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#projects" ? "font-medium text-autumn bg-autumn/5" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Projects
@@ -135,7 +139,9 @@ export default function Header() {
           <li>
             <Link 
               href="/#experience"
-              className="block py-2 text-steel hover:text-autumn transition-colors"
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#experience" ? "font-medium text-autumn bg-autumn/5" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Experience
@@ -144,7 +150,9 @@ export default function Header() {
           <li>
             <Link 
               href="/#about"
-              className="block py-2 text-steel hover:text-autumn transition-colors"
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#about" ? "font-medium text-autumn bg-autumn/5" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               About
@@ -153,7 +161,9 @@ export default function Header() {
           <li>
             <Link 
               href="/#contact"
-              className="block py-2 text-steel hover:text-autumn transition-colors"
+              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
+                location === "/#contact" ? "font-medium text-autumn bg-autumn/5" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Contact
