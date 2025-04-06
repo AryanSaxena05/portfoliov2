@@ -1,19 +1,59 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Linkedin, Github } from "lucide-react";
+import { FileText, Linkedin, Github, LineChart, Database, PanelRight, Layers, BarChart3, FileSpreadsheet, Cloud, Monitor, Server, Activity, Hand } from "lucide-react";
+import { SiPython, SiR, SiTableau, SiMysql, SiPostgresql, SiGooglecloud, 
+         SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiGit, 
+         SiJupyter, SiApachespark, SiApachehadoop, SiDocker, 
+         SiAmazon } from "react-icons/si";
 
 type Skill = {
   name: string;
-  percentage: number;
+  category: 'language' | 'tool' | 'platform' | 'database' | 'framework' | 'cloud';
+  size: 'sm' | 'md' | 'lg' | 'xl'; // Different sizes for the word cloud
+  icon: React.ReactNode;
 };
 
+// Expanded list of skills with their categories, sizes, and icons
 const skills: Skill[] = [
-  { name: "Data Analysis", percentage: 90 },
-  { name: "Python", percentage: 85 },
-  { name: "Business Analytics", percentage: 90 },
-  { name: "Machine Learning", percentage: 80 },
-  { name: "SQL", percentage: 85 },
-  { name: "R Programming", percentage: 75 }
+  // Languages
+  { name: "Python", category: 'language', size: 'xl', icon: <SiPython /> },
+  { name: "R", category: 'language', size: 'lg', icon: <SiR /> },
+  { name: "SQL", category: 'language', size: 'xl', icon: <Database /> },
+  
+  // Tools & Software
+  { name: "Tableau", category: 'tool', size: 'xl', icon: <SiTableau /> },
+  { name: "Power BI", category: 'tool', size: 'lg', icon: <Monitor /> },
+  { name: "Excel", category: 'tool', size: 'lg', icon: <FileSpreadsheet /> },
+  { name: "Git", category: 'tool', size: 'md', icon: <SiGit /> },
+  { name: "Jupyter", category: 'tool', size: 'md', icon: <SiJupyter /> },
+  
+  // Databases
+  { name: "MySQL", category: 'database', size: 'lg', icon: <SiMysql /> },
+  { name: "PostgreSQL", category: 'database', size: 'md', icon: <SiPostgresql /> },
+  
+  // Frameworks & Libraries
+  { name: "TensorFlow", category: 'framework', size: 'lg', icon: <SiTensorflow /> },
+  { name: "Scikit-learn", category: 'framework', size: 'lg', icon: <SiScikitlearn /> },
+  { name: "Pandas", category: 'framework', size: 'md', icon: <SiPandas /> },
+  { name: "NumPy", category: 'framework', size: 'md', icon: <SiNumpy /> },
+  
+  // Cloud Platforms
+  { name: "AWS", category: 'cloud', size: 'lg', icon: <SiAmazon /> },
+  { name: "Azure", category: 'cloud', size: 'md', icon: <Server /> },
+  { name: "GCP", category: 'cloud', size: 'sm', icon: <SiGooglecloud /> },
+  
+  // Big Data
+  { name: "Spark", category: 'platform', size: 'md', icon: <SiApachespark /> },
+  { name: "Hadoop", category: 'platform', size: 'sm', icon: <SiApachehadoop /> },
+  
+  // Other skills (using Lucide icons when no specific icon is available)
+  { name: "Data Analysis", category: 'framework', size: 'xl', icon: <LineChart /> },
+  { name: "Business Analytics", category: 'framework', size: 'xl', icon: <BarChart3 /> },
+  { name: "Machine Learning", category: 'framework', size: 'lg', icon: <Layers /> },
+  { name: "Docker", category: 'tool', size: 'sm', icon: <SiDocker /> },
+  { name: "Data Visualization", category: 'framework', size: 'lg', icon: <PanelRight /> },
+  { name: "Microsoft Office", category: 'platform', size: 'md', icon: <FileText /> },
+  { name: "Cloud Computing", category: 'cloud', size: 'lg', icon: <Cloud /> }
 ];
 
 export default function AboutSection() {
@@ -24,16 +64,6 @@ export default function AboutSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("opacity-100", "translate-y-0");
-          
-          // Animate the skill bars
-          const skillBars = document.querySelectorAll('.skill-bar-fill');
-          skillBars.forEach((bar) => {
-            const percentageAttr = bar.getAttribute('data-percentage');
-            if (percentageAttr) {
-              const percentage = parseInt(percentageAttr);
-              (bar as HTMLElement).style.width = `${percentage}%`;
-            }
-          });
         }
       },
       {
@@ -106,23 +136,80 @@ export default function AboutSection() {
               </div>
               
               <div className="mt-8">
-                <h3 className="text-xl font-semibold mb-4">My Skills</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {skills.map((skill, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between mb-1">
-                        <p className="font-medium">{skill.name}</p>
-                        <p className="text-gray-500">{skill.percentage}%</p>
+                <h3 className="text-xl font-semibold mb-6 text-charcoal">My Skills</h3>
+                <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4">
+                  {/* Word cloud with random positioning */}
+                  {skills.map((skill, index) => {
+                    // Define sizes based on skill.size
+                    const sizes = {
+                      'sm': 'text-xs md:text-sm',
+                      'md': 'text-sm md:text-base',
+                      'lg': 'text-base md:text-lg',
+                      'xl': 'text-lg md:text-xl'
+                    };
+                    
+                    // Define colors based on skill.category
+                    const colors = {
+                      'language': 'bg-blue-100 text-blue-700 border-blue-200',
+                      'tool': 'bg-green-100 text-green-700 border-green-200',
+                      'platform': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+                      'database': 'bg-purple-100 text-purple-700 border-purple-200',
+                      'framework': 'bg-red-100 text-red-700 border-red-200',
+                      'cloud': 'bg-cyan-100 text-cyan-700 border-cyan-200'
+                    };
+                    
+                    // Apply the appropriate size and color classes
+                    const sizeClass = sizes[skill.size];
+                    const colorClass = colors[skill.category];
+                    
+                    // Random rotation between -6 and 6 degrees
+                    const rotation = Math.floor(Math.random() * 13) - 6;
+                    
+                    return (
+                      <div 
+                        key={index}
+                        className={`
+                          ${sizeClass} ${colorClass}
+                          px-3 py-2 rounded-full border 
+                          flex items-center gap-1.5
+                          hover:scale-110 transition-transform
+                          shadow-sm
+                        `}
+                        style={{ transform: `rotate(${rotation}deg)` }}
+                      >
+                        <span className="text-lg">{skill.icon}</span>
+                        <span className="font-medium">{skill.name}</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="skill-bar-fill bg-primary h-2 rounded-full transition-all duration-1000 ease-out" 
-                          style={{ width: "0%" }}
-                          data-percentage={skill.percentage}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
+                </div>
+                
+                {/* Legend for categories */}
+                <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-steel">
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-blue-100 border border-blue-200"></div>
+                    <span>Languages</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-green-100 border border-green-200"></div>
+                    <span>Tools</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-yellow-100 border border-yellow-200"></div>
+                    <span>Platforms</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-purple-100 border border-purple-200"></div>
+                    <span>Databases</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-red-100 border border-red-200"></div>
+                    <span>Frameworks</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="w-3 h-3 rounded-full bg-cyan-100 border border-cyan-200"></div>
+                    <span>Cloud</span>
+                  </div>
                 </div>
               </div>
               
