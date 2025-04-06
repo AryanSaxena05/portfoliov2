@@ -1,0 +1,45 @@
+yes lets modify the my work section, i want to get rid of the work experience tab because that’s a different compartment. apart from that i will share all the details required to add in the other tabs. 
+
+academic projects :
+1.	datacamp
+a.	nyc public schools : This report analyzes the SAT performance of NYC schools with a focus on three key objectives:
+i.	Identifying schools with the best math results.
+ii.	Listing the top 10 performing schools based on combined SAT scores.
+iii.	Determining which borough exhibits the largest standard deviation in combined SAT scores.
+b.	Investigating Netflix Movies : Netflix, founded in 1997 as a DVD rental service, has evolved into a global entertainment giant with a vast library of movies and TV shows. This report focuses on analyzing Netflix movies released in the 1990s to uncover insights about this iconic decade in cinema. The analysis aims to assist a production company specializing in nostalgic styles.
+2.	Purdue:
+a.	Bankruptcy Prediction Modelling : 
+i.	Conducted robust exploratory data analysis (EDA) using SAS Enterprise Miner to address skewed attributes, significant outliers, and collinearity, leveraging techniques like LASSO regularization.
+ii.	Built an ensemble modeling approach combining Gradient Boosting, Neural Networks, and LASSO regression within SAS EM, achieving a final accuracy of 94.15% on private leaderboard test data.
+iii.	 Optimized data partitioning and model parameters, including a 70:30 train-test split, tailored activation functions, and multi-model stacking to improve predictive accuracy and mitigate overfitting.
+iv.	Delivered actionable insights into bankruptcy risk prediction, emphasizing model scalability and adaptability for real-world financial datasets. 
+v.	Skills: data exploration ¬∑ Data Analysis ¬∑ SAS Enterprise Miner ¬∑ SAS (Software) ¬∑ Data Engineering ¬∑ Analytical Skills ¬∑ Exploratory Data Analysis
+b.	Student Performance Analysis System :
+i.	Problem: Traditional education methods may not optimize student potential.
+ii.	Solution: Project uses data visualization and machine learning to analyze and improve student performance.
+iii.	Benefits: Educators gain actionable insights to personalize learning and improve academic outcomes.
+iv.	Impact: Creates a more effective and personalized education choices, empowering student success.
+c.	Union Pacific – On the Tracks to Tech Transformation
+i.	Objective: Developed a strategic roadmap to digitally transform Union Pacific's operations, focusing on enhancing operational efficiency, customer experience, and revenue growth.
+ii.	Proposed Solutions:
+1.	IoT Sensors: Enabled predictive maintenance and real-time monitoring to minimize downtime, enhance safety, and optimize resource allocation.
+2.	AI/ML Integration: Implemented dynamic pricing models, predictive analytics, and automated decision-making to improve profitability and reduce costs.
+3.	Digital Twins: Simulated infrastructure and operations for smarter planning, risk mitigation, and cost efficiency.
+iii.	Key Outcomes:
+1.	Enhanced Union Pacific’s value chain through enriched data flow, better customer experience, and higher reliability.
+2.	Improved operational metrics such as reduced maintenance costs, better train scheduling, and streamlined resource usage.
+3.	Created a digital virtuous cycle where reinvestment in technology drives continuous growth and innovation.
+iv.	Real-World Applications: Highlighted the potential for digital transformation in the freight industry to achieve long-term sustainability, customer satisfaction, and market leadership.
+v.	Skills: Collaboration · Project Planning · Cost Reduction Management · Analytical Skills · Critical Thinking · Value Chain Optimization · Presentation Skills · Strategic Communications
+d.	Airbnb Market Segmentation and Insights
+i.	Objective: To enhance Airbnb's host network optimization by leveraging advanced data analytics to segment hosts and generate predictive insights into performance, revenue, and Superhost status.
+ii.	Methodology:
+1.	Conducted exploratory data analysis and preprocessing on a dataset of over 120,000 rows and 111 variables, addressing challenges like missing values, outliers, skewness, and multicollinearity.
+2.	Performed K-means clustering, identifying six distinct host segments based on property characteristics, pricing, neighborhood attributes, and historical performance.
+3.	Developed predictive models for revenue drivers, Superhost probability, and the key factors influencing Superhost status.
+iii.	Key Results:
+1.	Identified high-performing hosts needing retention strategies and emerging hosts requiring targeted support for sustained growth.
+2.	Unveiled underperforming clusters with opportunities for improvement through dynamic pricing and operational training.
+iv.	Real-World Applications: Provided actionable strategies to improve host performance, optimize the Superhost program, and enhance customer satisfaction, driving sustainable growth in a competitive market.
+v.	Impact: Delivered insights for market-specific interventions, empowering Airbnb to refine host engagement, increase revenue, and strengthen its reputation as a global marketplace leader.
+vi.	Skills: Regression Analysis · Market Analysis · Machine Learning · Pandas (Software) · Data Preparation · Python (Programming Language) · Analytical Skills · Scikit-Learn · Segmentation Analysis · k-means clustering · Collaborative Problem Solving

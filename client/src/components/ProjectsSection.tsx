@@ -54,25 +54,49 @@ type WorkExperience = {
 const academicProjects: AcademicProject[] = [
   {
     id: 1,
-    title: "Home Essentials Analytics",
-    description: "Led a team in optimizing production & operations strategy through supply chain management and microeconomics analysis.",
-    technologies: ["Data Analysis", "Supply Chain", "Cost Optimization", "Product Innovation"],
+    title: "NYC Public Schools Analysis",
+    description: "This report analyzes the SAT performance of NYC schools, focusing on identifying schools with the best math results, listing the top 10 performing schools based on combined SAT scores, and determining which borough exhibits the largest standard deviation in combined SAT scores.",
+    technologies: ["Data Analysis", "Education Analytics", "Statistical Analysis", "DataCamp Project"],
     demoUrl: "#",
     githubUrl: "#"
   },
   {
     id: 2,
-    title: "Telecommunications Start-Up Consulting",
-    description: "Analyzed datasets using Python frameworks to build optimum generative models, boosting model accuracy by 40%.",
-    technologies: ["Python", "AI/ML Models", "Data Analysis", "API Integration"],
+    title: "Investigating Netflix Movies",
+    description: "Analysis of Netflix movies released in the 1990s to uncover insights about this iconic decade in cinema. The project assists a production company specializing in nostalgic styles by examining trends and patterns in Netflix's extensive film library from this period.",
+    technologies: ["Data Analysis", "Entertainment Analytics", "Trend Analysis", "DataCamp Project"],
     demoUrl: "#",
     githubUrl: "#"
   },
   {
     id: 3,
     title: "Bankruptcy Prediction Modeling",
-    description: "Pre-processed noisy data to identify fraudulent cases by building ensemble-based machine learning model with 94.15% accuracy.",
-    technologies: ["SAS EM", "Data Mining", "Machine Learning", "Predictive Modeling"],
+    description: "Conducted robust EDA using SAS Enterprise Miner to address skewed attributes, significant outliers, and collinearity. Built an ensemble modeling approach combining Gradient Boosting, Neural Networks, and LASSO regression, achieving a final accuracy of 94.15% on private leaderboard test data.",
+    technologies: ["SAS Enterprise Miner", "Data Engineering", "Exploratory Data Analysis", "Analytical Skills"],
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 4,
+    title: "Student Performance Analysis System",
+    description: "Developed a system that uses data visualization and machine learning to analyze and improve student performance. The project empowers educators with actionable insights to personalize learning and improve academic outcomes, creating more effective education choices.",
+    technologies: ["Data Visualization", "Machine Learning", "Education Analytics", "Personalized Learning"],
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 5,
+    title: "Union Pacific – Tech Transformation",
+    description: "Developed a strategic roadmap to digitally transform Union Pacific's operations using IoT sensors, AI/ML integration, and digital twins. Enhanced the value chain through enriched data flow, better customer experience, and higher reliability while improving operational metrics.",
+    technologies: ["Project Planning", "Cost Reduction Management", "Value Chain Optimization", "Strategic Communications"],
+    demoUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 6,
+    title: "Airbnb Market Segmentation",
+    description: "Enhanced Airbnb's host network optimization using advanced data analytics to segment hosts and generate predictive insights. Used K-means clustering to identify six distinct host segments and developed predictive models for revenue drivers and Superhost probability.",
+    technologies: ["Regression Analysis", "Market Analysis", "Machine Learning", "K-means Clustering"],
     demoUrl: "#",
     githubUrl: "#"
   }
@@ -82,9 +106,21 @@ const academicProjects: AcademicProject[] = [
 const tableauDashboards: TableauDashboard[] = [
   {
     id: 1,
-    title: "Data Visualization Dashboard",
-    description: "Interactive data visualizations created in Tableau to analyze and present insights from complex datasets.",
-    dashboardUrl: "https://public.tableau.com/app/profile/aryan.saxena8339/vizzess"
+    title: "Marketing Dashboard",
+    description: "Interactive marketing analytics dashboard providing insights into campaign performance, customer engagement, and ROI metrics for data-driven decision making.",
+    dashboardUrl: "https://public.tableau.com/views/marketingdashboard_17218934198700/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+  },
+  {
+    id: 2,
+    title: "House Prices Analysis",
+    description: "Comprehensive analysis of real estate market trends, property valuations, and price determinants across different regions and time periods.",
+    dashboardUrl: "https://public.tableau.com/views/HousePrices_17187827408920/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+  },
+  {
+    id: 3,
+    title: "British Airways YouTube Analytics",
+    description: "In-depth analysis of British Airways' YouTube channel performance, including engagement metrics, viewer demographics, and content effectiveness.",
+    dashboardUrl: "https://public.tableau.com/views/britishairwaysyoutube/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
   }
 ];
 
@@ -93,7 +129,13 @@ const videoProjects: VideoProject[] = [
   {
     id: 1,
     title: "Data Analytics Project Showcase",
-    description: "Demonstration of my analytical approach and project methodology in this comprehensive video.",
+    description: "Demonstration of my analytical approach and project methodology in this comprehensive video showcasing the techniques and insights derived from my data science work.",
+    videoUrl: "https://youtu.be/1BEwNre9-wo"
+  },
+  {
+    id: 2,
+    title: "Business Analytics Presentation",
+    description: "Video presentation explaining key business analytics concepts and their real-world applications, with a focus on how data-driven decision making can transform organizations.",
     videoUrl: "https://youtu.be/1BEwNre9-wo"
   }
 ];
@@ -287,12 +329,12 @@ export default function ProjectsSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-charcoal">My Work</h2>
           <p className="max-w-2xl mx-auto text-steel">
-            Explore my projects, dashboards, videos, research papers, and professional work experience.
+            Explore my academic projects, Tableau dashboards, and YouTube videos showcasing my skills and abilities.
           </p>
         </div>
 
         <Tabs defaultValue="academic" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-8 w-full">
+          <TabsList className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8 w-full">
             <TabsTrigger value="academic" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               <span className="hidden md:inline">Academic Projects</span>
@@ -307,16 +349,6 @@ export default function ProjectsSection() {
               <Youtube className="h-4 w-4" />
               <span className="hidden md:inline">YouTube Videos</span>
               <span className="inline md:hidden">YouTube</span>
-            </TabsTrigger>
-            <TabsTrigger value="research" className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              <span className="hidden md:inline">Research Papers</span>
-              <span className="inline md:hidden">Research</span>
-            </TabsTrigger>
-            <TabsTrigger value="work" className="flex items-center gap-2">
-              <Briefcase className="h-4 w-4" />
-              <span className="hidden md:inline">Work Experience</span>
-              <span className="inline md:hidden">Work</span>
             </TabsTrigger>
           </TabsList>
 
