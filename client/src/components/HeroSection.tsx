@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import profilePhoto from "@assets/prof_photo.jpeg";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,8 +36,8 @@ export default function HeroSection() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="md:w-7/12">
+          <div className="flex flex-col">
+            <div className="w-full">
               <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
                 Hi, I'm <span className="text-autumn">Aryan Saxena</span>
               </h2>
@@ -56,15 +55,6 @@ export default function HeroSection() {
                 <Link href="#contact">
                   <Button variant="outline" size="lg" className="border-autumn text-autumn hover:text-autumn/90">Contact Me</Button>
                 </Link>
-              </div>
-            </div>
-            <div className="md:w-5/12 hidden md:block">
-              <div className="relative w-full h-80">
-                <img 
-                  src={profilePhoto}
-                  alt="Aryan Saxena" 
-                  className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl shadow-lg"
-                />
               </div>
             </div>
           </div>

@@ -90,18 +90,8 @@ export default function AboutSection() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-12">
-            <div className="lg:w-1/2 lg:order-2">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="/images/aryan_new_photo.jpeg" 
-                  alt="Aryan Saxena" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2 mt-8 lg:mt-0">
+          <div className="flex flex-col lg:flex-row lg:items-center">
+            <div className="w-full mt-8 lg:mt-0">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
@@ -198,7 +188,7 @@ export default function AboutSection() {
               
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
-                  <a href="/Aryan_Saxena_5_4_BA_NAW.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/resume/Aryan_Saxena_5_4_BA_NAW.pdf" target="_blank" rel="noopener noreferrer">
                     <FileText className="mr-2 h-4 w-4" /> Download Resume
                   </a>
                 </Button>
