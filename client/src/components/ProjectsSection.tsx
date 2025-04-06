@@ -5,6 +5,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Github, Link as LinkIcon, ChevronRight, ExternalLink, Youtube, BarChart3, BookOpen, Briefcase, Database, Code } from "lucide-react";
 
+// Import project images
+import airbnbImage from "@assets/Airbnb Market Segmentation.png";
+import bankruptcyImage from "@assets/Bankruptcy Prediction Modeling.jpg";
+import britishAirwaysImage from "@assets/British Airways YouTube Analytics.png";
+import housePricesImage from "@assets/House Prices Analysis.png";
+import netflixImage from "@assets/Investigating Netflix Movies.jpg";
+import marketingDashboardImage from "@assets/Marketing Dashboard.png";
+import nycPublicSchoolsImage from "@assets/NYC Public Schools Analysis.jpg";
+import studentPerformanceImage from "@assets/Student Performance Analysis System.png";
+import unionPacificImage from "@assets/Union Pacific – Tech Transformation.jpeg";
+
 // Define the different types of projects
 type AcademicProject = {
   id: number;
@@ -66,6 +77,7 @@ const academicProjects: AcademicProject[] = [
     title: "NYC Public Schools Analysis",
     description: "This report analyzes the SAT performance of NYC schools, focusing on identifying schools with the best math results, listing the top 10 performing schools based on combined SAT scores, and determining which borough exhibits the largest standard deviation in combined SAT scores.",
     technologies: ["Data Analysis", "Education Analytics", "Statistical Analysis", "DataCamp Project"],
+    imageUrl: nycPublicSchoolsImage,
     demoUrl: "#",
     githubUrl: "#"
   },
@@ -74,6 +86,7 @@ const academicProjects: AcademicProject[] = [
     title: "Investigating Netflix Movies",
     description: "Analysis of Netflix movies released in the 1990s to uncover insights about this iconic decade in cinema. The project assists a production company specializing in nostalgic styles by examining trends and patterns in Netflix's extensive film library from this period.",
     technologies: ["Data Analysis", "Entertainment Analytics", "Trend Analysis", "DataCamp Project"],
+    imageUrl: netflixImage,
     demoUrl: "#",
     githubUrl: "#"
   },
@@ -82,6 +95,7 @@ const academicProjects: AcademicProject[] = [
     title: "Bankruptcy Prediction Modeling",
     description: "Conducted robust EDA using SAS Enterprise Miner to address skewed attributes, significant outliers, and collinearity. Built an ensemble modeling approach combining Gradient Boosting, Neural Networks, and LASSO regression, achieving a final accuracy of 94.15% on private leaderboard test data.",
     technologies: ["SAS Enterprise Miner", "Data Engineering", "Exploratory Data Analysis", "Analytical Skills"],
+    imageUrl: bankruptcyImage,
     demoUrl: "#",
     githubUrl: "#"
   },
@@ -90,6 +104,7 @@ const academicProjects: AcademicProject[] = [
     title: "Student Performance Analysis System",
     description: "Developed a system that uses data visualization and machine learning to analyze and improve student performance. The project empowers educators with actionable insights to personalize learning and improve academic outcomes, creating more effective education choices.",
     technologies: ["Data Visualization", "Machine Learning", "Education Analytics", "Personalized Learning"],
+    imageUrl: studentPerformanceImage,
     demoUrl: "#",
     githubUrl: "#"
   },
@@ -98,6 +113,7 @@ const academicProjects: AcademicProject[] = [
     title: "Union Pacific – Tech Transformation",
     description: "Developed a strategic roadmap to digitally transform Union Pacific's operations using IoT sensors, AI/ML integration, and digital twins. Enhanced the value chain through enriched data flow, better customer experience, and higher reliability while improving operational metrics.",
     technologies: ["Project Planning", "Cost Reduction Management", "Value Chain Optimization", "Strategic Communications"],
+    imageUrl: unionPacificImage,
     demoUrl: "#",
     githubUrl: "#"
   },
@@ -106,6 +122,7 @@ const academicProjects: AcademicProject[] = [
     title: "Airbnb Market Segmentation",
     description: "Enhanced Airbnb's host network optimization using advanced data analytics to segment hosts and generate predictive insights. Used K-means clustering to identify six distinct host segments and developed predictive models for revenue drivers and Superhost probability.",
     technologies: ["Regression Analysis", "Market Analysis", "Machine Learning", "K-means Clustering"],
+    imageUrl: airbnbImage,
     demoUrl: "#",
     githubUrl: "#"
   }
@@ -117,18 +134,21 @@ const tableauDashboards: TableauDashboard[] = [
     id: 1,
     title: "Marketing Dashboard",
     description: "Interactive marketing analytics dashboard providing insights into campaign performance, customer engagement, and ROI metrics for data-driven decision making.",
+    imageUrl: marketingDashboardImage,
     dashboardUrl: "https://public.tableau.com/views/marketingdashboard_17218934198700/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
   },
   {
     id: 2,
     title: "House Prices Analysis",
     description: "Comprehensive analysis of real estate market trends, property valuations, and price determinants across different regions and time periods.",
+    imageUrl: housePricesImage,
     dashboardUrl: "https://public.tableau.com/views/HousePrices_17187827408920/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
   },
   {
     id: 3,
     title: "British Airways YouTube Analytics",
     description: "In-depth analysis of British Airways' YouTube channel performance, including engagement metrics, viewer demographics, and content effectiveness.",
+    imageUrl: britishAirwaysImage,
     dashboardUrl: "https://public.tableau.com/views/britishairwaysyoutube/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
   }
 ];
@@ -376,8 +396,16 @@ export default function ProjectsSection() {
                   key={project.id}
                   className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
                 >
-                  <div className="w-full">
-                    <ProjectSVG id={project.id} type="academic" />
+                  <div className="w-full h-48 overflow-hidden">
+                    {project.imageUrl ? (
+                      <img 
+                        src={project.imageUrl} 
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                      />
+                    ) : (
+                      <ProjectSVG id={project.id} type="academic" />
+                    )}
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
@@ -415,15 +443,31 @@ export default function ProjectsSection() {
                   key={dashboard.id}
                   className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
                 >
-                  <div className="w-full">
-                    <ProjectSVG id={dashboard.id} type="tableau" />
+                  <div className="w-full h-48 overflow-hidden">
+                    {dashboard.imageUrl ? (
+                      <img 
+                        src={dashboard.imageUrl} 
+                        alt={dashboard.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                      />
+                    ) : (
+                      <ProjectSVG id={dashboard.id} type="tableau" />
+                    )}
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-charcoal">{dashboard.title}</h3>
                     <p className="text-steel mb-4">
                       {dashboard.description}
                     </p>
-                    <TableauEmbed dashboardUrl={dashboard.dashboardUrl} />
+                    <a 
+                      href={dashboard.dashboardUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 rounded-md bg-cyan-600 text-white hover:bg-cyan-700 transition-colors"
+                    >
+                      <BarChart3 className="w-4 h-4 mr-2" />
+                      View Dashboard
+                    </a>
                   </CardContent>
                 </Card>
               ))}

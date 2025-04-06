@@ -141,7 +141,7 @@ export default function AboutSection() {
               <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-6 text-charcoal">My Skills</h3>
                 <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4">
-                  {/* Word cloud with random positioning */}
+                  {/* Word cloud with improved styling */}
                   {skills.map((skill, index) => {
                     // Define sizes based on skill.size
                     const sizes = {
@@ -151,68 +151,34 @@ export default function AboutSection() {
                       'xl': 'text-lg md:text-xl'
                     };
                     
-                    // Define colors based on skill.category
-                    const colors = {
-                      'language': 'bg-blue-100 text-blue-700 border-blue-200',
-                      'tool': 'bg-green-100 text-green-700 border-green-200',
-                      'platform': 'bg-yellow-100 text-yellow-700 border-yellow-200',
-                      'database': 'bg-purple-100 text-purple-700 border-purple-200',
-                      'framework': 'bg-red-100 text-red-700 border-red-200',
-                      'cloud': 'bg-cyan-100 text-cyan-700 border-cyan-200'
-                    };
-                    
-                    // Apply the appropriate size and color classes
+                    // Apply the appropriate size class
                     const sizeClass = sizes[skill.size];
-                    const colorClass = colors[skill.category];
                     
-                    // Random rotation between -6 and 6 degrees
-                    const rotation = Math.floor(Math.random() * 13) - 6;
+                    // Random offset for more organic layout
+                    const xOffset = Math.floor(Math.random() * 20) - 10;
+                    const yOffset = Math.floor(Math.random() * 10) - 5;
                     
                     return (
                       <div 
                         key={index}
                         className={`
-                          ${sizeClass} ${colorClass}
-                          px-3 py-2 rounded-full border 
+                          ${sizeClass}
+                          px-3 py-2 rounded-full
                           flex items-center gap-1.5
-                          hover:scale-110 transition-transform
+                          hover:scale-110 transition-all duration-300
                           shadow-sm
+                          bg-gradient-to-r from-white to-gray-50
+                          border border-gray-200
+                          hover:border-autumn/50 hover:text-autumn
+                          hover:shadow-md
                         `}
-                        style={{ transform: `rotate(${rotation}deg)` }}
+                        style={{ transform: `translateX(${xOffset}px) translateY(${yOffset}px)` }}
                       >
-                        <span className="text-lg">{skill.icon}</span>
+                        <span className="text-autumn">{skill.icon}</span>
                         <span className="font-medium">{skill.name}</span>
                       </div>
                     );
                   })}
-                </div>
-                
-                {/* Legend for categories */}
-                <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-steel">
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-blue-100 border border-blue-200"></div>
-                    <span>Languages</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-green-100 border border-green-200"></div>
-                    <span>Tools</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-yellow-100 border border-yellow-200"></div>
-                    <span>Platforms</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-purple-100 border border-purple-200"></div>
-                    <span>Databases</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-red-100 border border-red-200"></div>
-                    <span>Frameworks</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 rounded-full bg-cyan-100 border border-cyan-200"></div>
-                    <span>Cloud</span>
-                  </div>
                 </div>
               </div>
               
