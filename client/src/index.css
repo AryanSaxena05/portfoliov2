@@ -3,11 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --autumn: 31, 111, 72;  /* #A97148 */
+    --steel: 85, 93, 102;   /* #555D66 */
+    --beige: 215, 191, 167; /* #D7BFA7 */
+    --sky: 199, 204, 209;   /* #C7CCD1 */
+    --charcoal: 59, 59, 59; /* #3B3B3B */
+    --jet: 28, 28, 28;      /* #1C1C1C */
+  }
+
+  .dark {
+    --background: 28, 28, 28;
+    --foreground: 245, 245, 245;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Dark mode transition */
+  body, div, section, header, nav, footer, article, 
+  h1, h2, h3, h4, h5, h6, p, span, a, button {
+    @apply transition-colors duration-300;
   }
 }
