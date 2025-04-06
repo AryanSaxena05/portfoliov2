@@ -144,10 +144,10 @@ const videoProjects: VideoProject[] = [
 const researchPapers: ResearchPaper[] = [
   {
     id: 1,
-    title: "Research Paper on Data Analytics",
+    title: "Comparative Analysis of Machine Learning Algorithms for Predictive Analytics",
     journal: "International Journal of Innovative Research in Technology",
-    abstract: "This research paper explores innovative approaches to data analytics and their applications in business decision-making.",
-    publicationDate: "2023",
+    abstract: "This research paper provides a comprehensive comparative analysis of various machine learning algorithms for predictive analytics applications. The study evaluates performance metrics, computational efficiency, and practical implementation challenges across different business domains.",
+    publicationDate: "May 2023",
     link: "https://ijirt.org/Article?manuscript=164572"
   }
 ];
@@ -329,12 +329,12 @@ export default function ProjectsSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-charcoal">My Work</h2>
           <p className="max-w-2xl mx-auto text-steel">
-            Explore my academic projects, Tableau dashboards, and YouTube videos showcasing my skills and abilities.
+            Explore my academic projects, Tableau dashboards, YouTube videos, and published research papers showcasing my skills and academic contributions.
           </p>
         </div>
 
         <Tabs defaultValue="academic" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8 w-full">
+          <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 w-full">
             <TabsTrigger value="academic" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               <span className="hidden md:inline">Academic Projects</span>
@@ -349,6 +349,11 @@ export default function ProjectsSection() {
               <Youtube className="h-4 w-4" />
               <span className="hidden md:inline">YouTube Videos</span>
               <span className="inline md:hidden">YouTube</span>
+            </TabsTrigger>
+            <TabsTrigger value="research" className="flex items-center gap-2">
+              <BookOpen className="h-4 w-4" />
+              <span className="hidden md:inline">Research Papers</span>
+              <span className="inline md:hidden">Research</span>
             </TabsTrigger>
           </TabsList>
 
