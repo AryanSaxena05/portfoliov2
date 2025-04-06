@@ -16,6 +16,9 @@ import nycPublicSchoolsImage from "@assets/NYC Public Schools Analysis.jpg";
 import studentPerformanceImage from "@assets/Student Performance Analysis System.png";
 import unionPacificImage from "@assets/Union Pacific – Tech Transformation.jpeg";
 
+// Google Drive portfolio folder URL
+const portfolioUrl = "https://drive.google.com/drive/folders/1oo7CMqRGDqOLcvm6M52kU921UT9chnza?usp=sharing";
+
 // Define the different types of projects
 type AcademicProject = {
   id: number;
@@ -78,7 +81,7 @@ const academicProjects: AcademicProject[] = [
     description: "This report analyzes the SAT performance of NYC schools, focusing on identifying schools with the best math results, listing the top 10 performing schools based on combined SAT scores, and determining which borough exhibits the largest standard deviation in combined SAT scores.",
     technologies: ["Data Analysis", "Education Analytics", "Statistical Analysis", "DataCamp Project"],
     imageUrl: nycPublicSchoolsImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   },
   {
@@ -87,7 +90,7 @@ const academicProjects: AcademicProject[] = [
     description: "Analysis of Netflix movies released in the 1990s to uncover insights about this iconic decade in cinema. The project assists a production company specializing in nostalgic styles by examining trends and patterns in Netflix's extensive film library from this period.",
     technologies: ["Data Analysis", "Entertainment Analytics", "Trend Analysis", "DataCamp Project"],
     imageUrl: netflixImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   },
   {
@@ -96,7 +99,7 @@ const academicProjects: AcademicProject[] = [
     description: "Conducted robust EDA using SAS Enterprise Miner to address skewed attributes, significant outliers, and collinearity. Built an ensemble modeling approach combining Gradient Boosting, Neural Networks, and LASSO regression, achieving a final accuracy of 94.15% on private leaderboard test data.",
     technologies: ["SAS Enterprise Miner", "Data Engineering", "Exploratory Data Analysis", "Analytical Skills"],
     imageUrl: bankruptcyImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   },
   {
@@ -105,7 +108,7 @@ const academicProjects: AcademicProject[] = [
     description: "Developed a system that uses data visualization and machine learning to analyze and improve student performance. The project empowers educators with actionable insights to personalize learning and improve academic outcomes, creating more effective education choices.",
     technologies: ["Data Visualization", "Machine Learning", "Education Analytics", "Personalized Learning"],
     imageUrl: studentPerformanceImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   },
   {
@@ -114,7 +117,7 @@ const academicProjects: AcademicProject[] = [
     description: "Developed a strategic roadmap to digitally transform Union Pacific's operations using IoT sensors, AI/ML integration, and digital twins. Enhanced the value chain through enriched data flow, better customer experience, and higher reliability while improving operational metrics.",
     technologies: ["Project Planning", "Cost Reduction Management", "Value Chain Optimization", "Strategic Communications"],
     imageUrl: unionPacificImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   },
   {
@@ -123,7 +126,7 @@ const academicProjects: AcademicProject[] = [
     description: "Enhanced Airbnb's host network optimization using advanced data analytics to segment hosts and generate predictive insights. Used K-means clustering to identify six distinct host segments and developed predictive models for revenue drivers and Superhost probability.",
     technologies: ["Regression Analysis", "Market Analysis", "Machine Learning", "K-means Clustering"],
     imageUrl: airbnbImage,
-    demoUrl: "#",
+    demoUrl: portfolioUrl,
     githubUrl: "#"
   }
 ];

@@ -60,12 +60,21 @@ export default function HeroSection() {
                 Information Management with experience in consulting, analytics, and data science.
               </p>
               <div className="flex space-x-4">
-                <Link href="#projects">
-                  <Button size="lg" className="bg-gradient-to-r from-autumn to-amber-600 hover:from-autumn/90 hover:to-amber-500 text-white transition-all duration-300 transform hover:-translate-y-1">View My Work</Button>
-                </Link>
-                <Link href="#contact">
-                  <Button variant="outline" size="lg" className="border-autumn text-autumn hover:text-autumn/90 transition-all duration-300 transform hover:-translate-y-1">Contact Me</Button>
-                </Link>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-autumn to-amber-600 hover:from-autumn/90 hover:to-amber-500 text-white transition-all duration-300 transform hover:-translate-y-1"
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  View My Work
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-autumn text-autumn hover:text-autumn/90 transition-all duration-300 transform hover:-translate-y-1"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Contact Me
+                </Button>
               </div>
             </div>
           </div>
