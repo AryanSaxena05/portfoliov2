@@ -119,8 +119,8 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <a href="mailto:aryan.saxena@purdue.edu" className="text-gray-600 hover:text-primary transition-colors">
-                        aryan.saxena@purdue.edu
+                      <a href="mailto:saxen117@purdue.edu" className="text-gray-600 hover:text-primary transition-colors">
+                        saxen117@purdue.edu
                       </a>
                     </div>
                   </div>
@@ -131,8 +131,8 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a href="tel:+12065550170" className="text-gray-600 hover:text-primary transition-colors">
-                        +1 (206) 555-0170
+                      <a href="tel:+17657757415" className="text-gray-600 hover:text-primary transition-colors">
+                        +1 (765) 775-7415
                       </a>
                     </div>
                   </div>
@@ -149,8 +149,8 @@ export default function ContactSection() {
                 </div>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Connect</h3>
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-6">Connect</h3>
                 <div className="flex space-x-4">
                   <a 
                     href="https://twitter.com/aryan_saxena" 
