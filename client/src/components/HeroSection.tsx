@@ -59,18 +59,14 @@ export default function HeroSection() {
             </div>
           </div>
           
-          <div className="mt-12 pt-10 border-t border-sky grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div className="mt-12 pt-10 border-t border-sky grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
             <div>
-              <h4 className="font-semibold text-lg text-charcoal">3+</h4>
+              <h4 className="font-semibold text-lg text-charcoal">10+</h4>
               <p className="text-steel">Projects Completed</p>
             </div>
             <div>
               <h4 className="font-semibold text-lg text-charcoal">1+</h4>
               <p className="text-steel">Years Experience</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-lg text-charcoal">35%</h4>
-              <p className="text-steel">Cost Optimization</p>
             </div>
             <div>
               <h4 className="font-semibold text-lg text-charcoal">2</h4>

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Github, Link as LinkIcon, ChevronRight, ExternalLink, Youtube, BarChart3, BookOpen, Briefcase } from "lucide-react";
+import { Github, Link as LinkIcon, ChevronRight, ExternalLink, Youtube, BarChart3, BookOpen, Briefcase, Database, Code } from "lucide-react";
 
 // Define the different types of projects
 type AcademicProject = {
@@ -41,13 +41,22 @@ type ResearchPaper = {
   link: string;
 };
 
-type WorkExperience = {
+
+
+type KaggleProject = {
   id: number;
-  company: string;
-  role: string;
-  duration: string;
+  title: string;
   description: string;
-  skills: string[];
+  technologies: string[];
+  kaggleUrl: string;
+};
+
+type GitHubProject = {
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
 };
 
 // Sample data - Academic Projects
@@ -131,12 +140,6 @@ const videoProjects: VideoProject[] = [
     title: "Data Analytics Project Showcase",
     description: "Demonstration of my analytical approach and project methodology in this comprehensive video showcasing the techniques and insights derived from my data science work.",
     videoUrl: "https://youtu.be/1BEwNre9-wo"
-  },
-  {
-    id: 2,
-    title: "Business Analytics Presentation",
-    description: "Video presentation explaining key business analytics concepts and their real-world applications, with a focus on how data-driven decision making can transform organizations.",
-    videoUrl: "https://youtu.be/1BEwNre9-wo"
   }
 ];
 
@@ -152,25 +155,17 @@ const researchPapers: ResearchPaper[] = [
   }
 ];
 
-// Work Experience
-const workExperience: WorkExperience[] = [
-  {
-    id: 1,
-    company: "Ernst & Young",
-    role: "Business Consulting Intern",
-    duration: "May 2023 - July 2023",
-    description: "Optimized operational strategy for a home essentials client, resulting in 30-35% cost reduction and product innovation.",
-    skills: ["Strategy Consulting", "Data Analysis", "Project Management"]
-  },
-  {
-    id: 2,
-    company: "Telecom Startup",
-    role: "Data Science Consultant",
-    duration: "Jan 2023 - Apr 2023",
-    description: "Improved AI/ML model accuracy by 40% through Python frameworks and API integrations for better data processing.",
-    skills: ["Python", "Machine Learning", "API Integration", "Data Processing"]
-  }
+// Kaggle Projects
+const kaggleProjects: KaggleProject[] = [
+  // This is a placeholder to be filled in later
 ];
+
+// GitHub Projects
+const githubProjects: GitHubProject[] = [
+  // This is a placeholder to be filled in later
+];
+
+
 
 // Component to render a placeholder SVG for each project
 const ProjectSVG = ({ id, type }: { id: number; type: string }) => {
@@ -193,6 +188,12 @@ const ProjectSVG = ({ id, type }: { id: number; type: string }) => {
     work: [
       { bg: "#FFF7ED", fg: "#EA580C" }, // Orange
       { bg: "#ECFDF5", fg: "#10B981" }, // Emerald
+    ],
+    kaggle: [
+      { bg: "#F0FDF9", fg: "#0C9488" }, // Teal
+    ],
+    github: [
+      { bg: "#F1F5F9", fg: "#475569" }, // Slate
     ]
   };
   
@@ -329,31 +330,41 @@ export default function ProjectsSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-charcoal">My Work</h2>
           <p className="max-w-2xl mx-auto text-steel">
-            Explore my academic projects, Tableau dashboards, YouTube videos, and published research papers showcasing my skills and academic contributions.
+            Explore my projects, Tableau dashboards, YouTube videos, research papers, and coding work across multiple platforms showcasing my skills and contributions to the field.
           </p>
         </div>
 
         <Tabs defaultValue="academic" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 w-full">
+          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-8 w-full">
             <TabsTrigger value="academic" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
-              <span className="hidden md:inline">Academic Projects</span>
-              <span className="inline md:hidden">Academic</span>
+              <span className="hidden md:inline">Projects</span>
+              <span className="inline md:hidden">Projects</span>
             </TabsTrigger>
             <TabsTrigger value="tableau" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
-              <span className="hidden md:inline">Tableau Dashboards</span>
+              <span className="hidden md:inline">Tableau</span>
               <span className="inline md:hidden">Tableau</span>
             </TabsTrigger>
             <TabsTrigger value="video" className="flex items-center gap-2">
               <Youtube className="h-4 w-4" />
-              <span className="hidden md:inline">YouTube Videos</span>
+              <span className="hidden md:inline">YouTube</span>
               <span className="inline md:hidden">YouTube</span>
             </TabsTrigger>
             <TabsTrigger value="research" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
-              <span className="hidden md:inline">Research Papers</span>
+              <span className="hidden md:inline">Research</span>
               <span className="inline md:hidden">Research</span>
+            </TabsTrigger>
+            <TabsTrigger value="kaggle" className="flex items-center gap-2">
+              <Database className="h-4 w-4" />
+              <span className="hidden md:inline">Kaggle</span>
+              <span className="inline md:hidden">Kaggle</span>
+            </TabsTrigger>
+            <TabsTrigger value="github" className="flex items-center gap-2">
+              <Github className="h-4 w-4" />
+              <span className="hidden md:inline">GitHub</span>
+              <span className="inline md:hidden">GitHub</span>
             </TabsTrigger>
           </TabsList>
 
@@ -472,32 +483,97 @@ export default function ProjectsSection() {
             </div>
           </TabsContent>
 
-          {/* Work Experience Tab */}
-          <TabsContent value="work" className="space-y-6">
+
+
+          {/* Kaggle Projects Tab */}
+          <TabsContent value="kaggle" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {workExperience.map((job) => (
-                <Card 
-                  key={job.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                >
-                  <div className="w-full">
-                    <ProjectSVG id={job.id} type="work" />
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge className="mb-2 bg-amber-100 text-amber-800 hover:bg-amber-200">{job.duration}</Badge>
-                    <h3 className="text-xl font-semibold mb-1 text-charcoal">{job.role}</h3>
-                    <p className="text-autumn font-medium mb-3">{job.company}</p>
-                    <p className="text-steel mb-4">
-                      {job.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {job.skills.map((skill, index) => (
-                        <TechBadge key={index} tech={skill} />
-                      ))}
+              {kaggleProjects.length > 0 ? (
+                kaggleProjects.map((project) => (
+                  <Card 
+                    key={project.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <div className="w-full">
+                      <ProjectSVG id={project.id} type="kaggle" />
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
+                      <p className="text-steel mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.technologies.map((tech, index) => (
+                          <TechBadge key={index} tech={tech} />
+                        ))}
+                      </div>
+                      <a 
+                        href={project.kaggleUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+                      >
+                        <Database className="w-4 h-4 mr-2" />
+                        View on Kaggle
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-12">
+                  <Database className="h-16 w-16 mx-auto text-gray-300 mb-4" />
+                  <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
+                  <p className="text-steel max-w-md mx-auto">
+                    I'm currently working on some interesting Kaggle projects. Check back soon to see my data science competitions and notebooks!
+                  </p>
+                </div>
+              )}
+            </div>
+          </TabsContent>
+
+          {/* GitHub Projects Tab */}
+          <TabsContent value="github" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {githubProjects.length > 0 ? (
+                githubProjects.map((project) => (
+                  <Card 
+                    key={project.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <div className="w-full">
+                      <ProjectSVG id={project.id} type="github" />
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
+                      <p className="text-steel mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.technologies.map((tech, index) => (
+                          <TechBadge key={index} tech={tech} />
+                        ))}
+                      </div>
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-colors"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        View Repository
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-12">
+                  <Github className="h-16 w-16 mx-auto text-gray-300 mb-4" />
+                  <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
+                  <p className="text-steel max-w-md mx-auto">
+                    I'm currently working on pushing my projects to GitHub. Check back soon to explore my code repositories!
+                  </p>
+                </div>
+              )}
             </div>
           </TabsContent>
         </Tabs>
