@@ -92,32 +92,12 @@ export default function AboutSection() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-12">
             <div className="lg:w-1/2 lg:order-2">
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-primary/10">
-                <svg
-                  viewBox="0 0 500 300"
-                  className="w-full h-auto"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect width="500" height="300" fill="#EBF5FF" />
-                  <path
-                    d="M0,100 Q125,50 250,100 T500,100 V300 H0 Z"
-                    fill="#2563eb"
-                    fillOpacity="0.2"
-                  />
-                  <path
-                    d="M0,150 Q125,100 250,150 T500,150 V300 H0 Z"
-                    fill="#2563eb"
-                    fillOpacity="0.3"
-                  />
-                  <path
-                    d="M0,200 Q125,150 250,200 T500,200 V300 H0 Z"
-                    fill="#2563eb"
-                    fillOpacity="0.4"
-                  />
-                  <circle cx="250" cy="120" r="50" fill="#2563eb" fillOpacity="0.6" />
-                  <circle cx="250" cy="100" r="30" fill="#ffffff" />
-                  <rect x="220" y="170" width="60" height="80" rx="10" fill="#ffffff" />
-                </svg>
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/images/aryan_new_photo.jpeg" 
+                  alt="Aryan Saxena" 
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
             
@@ -125,13 +105,16 @@ export default function AboutSection() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  I'm a graduate student at Purdue University pursuing my Master's in Business Analytics and Information Management. With a background in data science and analytics, I bring a strategic analytical approach to business challenges.
+                  I'm Aryan Saxena — a data-driven problem solver with a strong foundation in business analytics, consulting, and technology. I thrive at the intersection of logic and creativity, turning data into actionable insights that drive strategic decisions.
                 </p>
                 <p>
-                  I specialize in data analysis, machine learning, and business intelligence applications. My approach combines technical expertise with business acumen to deliver insights that drive organizational decisions and value.
+                  Currently pursuing my MS in Business Analytics from Purdue University, I've led cross-functional teams in fast-paced consulting projects, built scalable analytics pipelines, and presented at national conferences. My experience spans everything from AI-powered customer tools to predictive modeling systems, including a published research paper in educational data mining.
                 </p>
                 <p>
-                  Prior to my graduate studies, I worked with KPMG in the Risk Consulting domain and gained valuable experience in building statistical models for risk assessment. My education at BITS Pilani provided me with a strong foundation in engineering and analytical thinking.
+                  Outside of analytics, I'm equally passionate about music. I've been recognized with multiple Awards of Excellence in music during my undergrad and have been a top scorer three times at Trinity College London. Whether I'm fine-tuning a model or a melody, I bring the same intensity: clarity, discipline, and a desire to create lasting impact.
+                </p>
+                <p>
+                  Let's connect — whether you're into analytics, strategy, or just good music.
                 </p>
               </div>
               
