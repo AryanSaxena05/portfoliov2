@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import profilePhoto from "@assets/prof_photo.jpeg";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -60,7 +61,7 @@ export default function HeroSection() {
             <div className="md:w-5/12 hidden md:block">
               <div className="relative w-full h-80">
                 <img 
-                  src="/prof_photo.jpeg" 
+                  src={profilePhoto}
                   alt="Aryan Saxena" 
                   className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl shadow-lg"
                 />
