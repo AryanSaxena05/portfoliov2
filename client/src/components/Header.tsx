@@ -30,7 +30,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-xl font-bold text-primary cursor-pointer">Aryan Saxena</h1>
+              <h1 className="text-xl font-bold text-charcoal cursor-pointer">Aryan Saxena</h1>
             </Link>
           </div>
           
@@ -39,41 +39,41 @@ export default function Header() {
             <ul className="flex space-x-8">
               <li>
                 <Link href="/#home">
-                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
-                    location === "/#home" ? "text-primary" : ""
+                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                    location === "/#home" ? "text-autumn" : ""
                   }`}>
                     Home
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/#projects">
-                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
-                    location === "/#projects" ? "text-primary" : ""
+                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                    location === "/#projects" ? "text-autumn" : ""
                   }`}>
                     Projects
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/#about">
-                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
-                    location === "/#about" ? "text-primary" : ""
+                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                    location === "/#about" ? "text-autumn" : ""
                   }`}>
                     About
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/#contact">
-                  <a className={`relative nav-link text-text-dark hover:text-primary transition-colors ${
-                    location === "/#contact" ? "text-primary" : ""
+                  <a className={`relative nav-link text-steel hover:text-autumn transition-colors ${
+                    location === "/#contact" ? "text-autumn" : ""
                   }`}>
                     Contact
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </Link>
               </li>
@@ -102,7 +102,7 @@ export default function Header() {
           <li>
             <Link href="/#home">
               <a 
-                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                className="block py-2 text-steel hover:text-autumn transition-colors"
                 onClick={closeMobileMenu}
               >
                 Home
@@ -112,7 +112,7 @@ export default function Header() {
           <li>
             <Link href="/#projects">
               <a 
-                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                className="block py-2 text-steel hover:text-autumn transition-colors"
                 onClick={closeMobileMenu}
               >
                 Projects
@@ -122,7 +122,7 @@ export default function Header() {
           <li>
             <Link href="/#about">
               <a 
-                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                className="block py-2 text-steel hover:text-autumn transition-colors"
                 onClick={closeMobileMenu}
               >
                 About
@@ -132,7 +132,7 @@ export default function Header() {
           <li>
             <Link href="/#contact">
               <a 
-                className="block py-2 text-gray-800 hover:text-primary transition-colors"
+                className="block py-2 text-steel hover:text-autumn transition-colors"
                 onClick={closeMobileMenu}
               >
                 Contact

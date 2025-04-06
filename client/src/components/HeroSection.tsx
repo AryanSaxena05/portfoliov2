@@ -39,66 +39,51 @@ export default function HeroSection() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="md:w-7/12">
               <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
-                Hi, I'm <span className="text-primary">Aryan Saxena</span>
+                Hi, I'm <span className="text-autumn">Aryan Saxena</span>
               </h2>
-              <h3 className="text-xl sm:text-2xl text-gray-600 font-light mb-6">
+              <h3 className="text-xl sm:text-2xl text-steel font-light mb-6">
                 Data Analyst & Business Analytics Professional
               </h3>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-steel mb-8 leading-relaxed">
                 I'm a graduate student at Purdue University, studying MS in Business Analytics and 
                 Information Management with experience in consulting, analytics, and data science.
               </p>
               <div className="flex space-x-4">
                 <Link href="#projects">
-                  <Button size="lg">View My Work</Button>
+                  <Button size="lg" className="bg-autumn hover:bg-autumn/90 text-white">View My Work</Button>
                 </Link>
                 <Link href="#contact">
-                  <Button variant="outline" size="lg">Contact Me</Button>
+                  <Button variant="outline" size="lg" className="border-autumn text-autumn hover:text-autumn/90">Contact Me</Button>
                 </Link>
               </div>
             </div>
             <div className="md:w-5/12 hidden md:block">
               <div className="relative w-full h-80">
-                <svg
-                  viewBox="0 0 200 200"
-                  className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-lg"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="100" cy="100" r="80" fill="#2563eb" />
-                  <path
-                    fill="#ffffff"
-                    d="M100,30 C130,30 155,55 155,85 C155,115 130,140 100,140 C70,140 45,115 45,85 C45,55 70,30 100,30 Z"
-                  />
-                  <circle cx="75" cy="75" r="5" fill="#1e293b" />
-                  <circle cx="125" cy="75" r="5" fill="#1e293b" />
-                  <path
-                    fill="#1e293b"
-                    d="M70,105 C80,115 120,115 130,105"
-                    stroke="#1e293b"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                <img 
+                  src="/prof_photo.jpeg" 
+                  alt="Aryan Saxena" 
+                  className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl shadow-lg"
+                />
               </div>
             </div>
           </div>
           
-          <div className="mt-12 pt-10 border-t border-gray-300 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div className="mt-12 pt-10 border-t border-sky grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             <div>
-              <h4 className="font-semibold text-lg">3+</h4>
-              <p className="text-gray-600">Projects Completed</p>
+              <h4 className="font-semibold text-lg text-charcoal">3+</h4>
+              <p className="text-steel">Projects Completed</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">1+</h4>
-              <p className="text-gray-600">Years Experience</p>
+              <h4 className="font-semibold text-lg text-charcoal">1+</h4>
+              <p className="text-steel">Years Experience</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">35%</h4>
-              <p className="text-gray-600">Cost Optimization</p>
+              <h4 className="font-semibold text-lg text-charcoal">35%</h4>
+              <p className="text-steel">Cost Optimization</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">2</h4>
-              <p className="text-gray-600">Scholarships</p>
+              <h4 className="font-semibold text-lg text-charcoal">2</h4>
+              <p className="text-steel">Scholarships</p>
             </div>
           </div>
         </div>

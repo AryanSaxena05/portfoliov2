@@ -44,6 +44,13 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Custom color palette
+        charcoal: "#3B3B3B",
+        steel: "#555D66",
+        jet: "#1C1C1C",
+        beige: "#D7BFA7",
+        autumn: "#A97148",
+        sky: "#C7CCD1",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
