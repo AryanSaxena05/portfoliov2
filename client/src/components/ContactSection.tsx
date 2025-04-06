@@ -119,8 +119,8 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <a href="mailto:johndoe@example.com" className="text-gray-600 hover:text-primary transition-colors">
-                        johndoe@example.com
+                      <a href="mailto:aryan.saxena@purdue.edu" className="text-gray-600 hover:text-primary transition-colors">
+                        aryan.saxena@purdue.edu
                       </a>
                     </div>
                   </div>
@@ -131,8 +131,8 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a href="tel:+11234567890" className="text-gray-600 hover:text-primary transition-colors">
-                        +1 (123) 456-7890
+                      <a href="tel:+12065550170" className="text-gray-600 hover:text-primary transition-colors">
+                        +1 (206) 555-0170
                       </a>
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-gray-600">San Francisco, CA</p>
+                      <p className="text-gray-600">West Lafayette, IN</p>
                     </div>
                   </div>
                 </div>
@@ -153,28 +153,28 @@ export default function ContactSection() {
                 <h3 className="text-xl font-semibold mb-4">Connect</h3>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://twitter.com/aryan_saxena" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
                   >
                     <Twitter className="h-5 w-5" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/in/aryan-saxena-purdue/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
                   >
                     <Linkedin className="h-5 w-5" />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://github.com/aryansaxena" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
                   >
                     <Github className="h-5 w-5" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
-                  >
-                    <Dribbble className="h-5 w-5" />
                   </a>
                 </div>
               </div>

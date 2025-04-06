@@ -39,14 +39,14 @@ export default function HeroSection() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="md:w-7/12">
               <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
-                Hi, I'm <span className="text-primary">John Doe</span>
+                Hi, I'm <span className="text-primary">Aryan Saxena</span>
               </h2>
               <h3 className="text-xl sm:text-2xl text-gray-600 font-light mb-6">
-                Full-Stack Developer & UI/UX Enthusiast
+                Data Analyst & Business Analytics Professional
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                I create elegant solutions to complex problems through clean, 
-                efficient code and thoughtful user experiences.
+                I'm a graduate student at Purdue University, studying MS in Business Analytics and 
+                Information Management with experience in consulting, analytics, and data science.
               </p>
               <div className="flex space-x-4">
                 <Link href="#projects">
@@ -85,20 +85,20 @@ export default function HeroSection() {
           
           <div className="mt-12 pt-10 border-t border-gray-300 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             <div>
-              <h4 className="font-semibold text-lg">10+</h4>
+              <h4 className="font-semibold text-lg">3+</h4>
               <p className="text-gray-600">Projects Completed</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">5+</h4>
+              <h4 className="font-semibold text-lg">1+</h4>
               <p className="text-gray-600">Years Experience</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">15+</h4>
-              <p className="text-gray-600">Happy Clients</p>
+              <h4 className="font-semibold text-lg">35%</h4>
+              <p className="text-gray-600">Cost Optimization</p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg">3</h4>
-              <p className="text-gray-600">Awards</p>
+              <h4 className="font-semibold text-lg">2</h4>
+              <p className="text-gray-600">Scholarships</p>
             </div>
           </div>
         </div>

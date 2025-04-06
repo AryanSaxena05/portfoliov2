@@ -16,27 +16,27 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "Modern e-commerce solution with product management, user authentication, and payment processing.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    title: "Home Essentials Analytics",
+    description: "Led a team in optimizing production & operations strategy through supply chain management and microeconomics analysis.",
+    technologies: ["Data Analysis", "Supply Chain", "Cost Optimization", "Product Innovation"],
     imageUrl: "/ecommerce.svg", // This is handled by the SVG below
     demoUrl: "#",
     githubUrl: "#"
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates and team workflows.",
-    technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
+    title: "Telecommunications Start-Up Consulting",
+    description: "Analyzed datasets using Python frameworks to build optimum generative models, boosting model accuracy by 40%.",
+    technologies: ["Python", "AI/ML Models", "Data Analysis", "API Integration"],
     imageUrl: "/taskmanager.svg", // This is handled by the SVG below
     demoUrl: "#",
     githubUrl: "#"
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "Interactive weather application with location-based forecasts and historical data visualization.",
-    technologies: ["JavaScript", "OpenWeather API", "Chart.js"],
+    title: "Bankruptcy Prediction Modeling",
+    description: "Pre-processed noisy data to identify fraudulent cases by building ensemble-based machine learning model with 94.15% accuracy.",
+    technologies: ["SAS EM", "Data Mining", "Machine Learning", "Predictive Modeling"],
     imageUrl: "/weather.svg", // This is handled by the SVG below
     demoUrl: "#",
     githubUrl: "#"
@@ -124,16 +124,17 @@ export default function ProjectsSection() {
                   {project.technologies.map((tech, index) => {
                     // Different colors for different tech types
                     const colors = {
-                      React: "bg-blue-100 text-blue-800",
-                      "Node.js": "bg-green-100 text-green-800",
-                      MongoDB: "bg-purple-100 text-purple-800",
-                      Stripe: "bg-yellow-100 text-yellow-800",
-                      "Vue.js": "bg-emerald-100 text-emerald-800",
-                      Firebase: "bg-orange-100 text-orange-800",
-                      "Tailwind CSS": "bg-cyan-100 text-cyan-800",
-                      JavaScript: "bg-yellow-100 text-yellow-800",
-                      "OpenWeather API": "bg-sky-100 text-sky-800",
-                      "Chart.js": "bg-rose-100 text-rose-800",
+                      "Data Analysis": "bg-blue-100 text-blue-800",
+                      "Supply Chain": "bg-green-100 text-green-800",
+                      "Cost Optimization": "bg-purple-100 text-purple-800",
+                      "Product Innovation": "bg-yellow-100 text-yellow-800",
+                      "Python": "bg-emerald-100 text-emerald-800",
+                      "AI/ML Models": "bg-orange-100 text-orange-800",
+                      "API Integration": "bg-cyan-100 text-cyan-800",
+                      "SAS EM": "bg-yellow-100 text-yellow-800",
+                      "Data Mining": "bg-sky-100 text-sky-800",
+                      "Machine Learning": "bg-rose-100 text-rose-800",
+                      "Predictive Modeling": "bg-indigo-100 text-indigo-800",
                     };
                     
                     const colorClass = colors[tech as keyof typeof colors] || "bg-gray-100 text-gray-800";

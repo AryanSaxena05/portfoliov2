@@ -8,10 +8,12 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  { name: "Frontend Development", percentage: 95 },
-  { name: "Backend Development", percentage: 85 },
-  { name: "UI/UX Design", percentage: 80 },
-  { name: "Database Management", percentage: 90 }
+  { name: "Data Analysis", percentage: 90 },
+  { name: "Python", percentage: 85 },
+  { name: "Business Analytics", percentage: 90 },
+  { name: "Machine Learning", percentage: 80 },
+  { name: "SQL", percentage: 85 },
+  { name: "R Programming", percentage: 75 }
 ];
 
 export default function AboutSection() {
@@ -93,13 +95,13 @@ export default function AboutSection() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  I'm a full-stack developer with 5+ years of experience building web applications that deliver exceptional user experiences. My journey in technology began with a degree in Computer Science, and I've been expanding my skills ever since.
+                  I'm a graduate student at Purdue University pursuing my Master's in Business Analytics and Information Management. With a background in data science and analytics, I bring a strategic analytical approach to business challenges.
                 </p>
                 <p>
-                  I specialize in modern JavaScript frameworks like React and Vue.js, paired with robust backend technologies. My approach combines technical excellence with an eye for design and usability.
+                  I specialize in data analysis, machine learning, and business intelligence applications. My approach combines technical expertise with business acumen to deliver insights that drive organizational decisions and value.
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers.
+                  Prior to my graduate studies, I worked with KPMG in the Risk Consulting domain and gained valuable experience in building statistical models for risk assessment. My education at BITS Pilani provided me with a strong foundation in engineering and analytical thinking.
                 </p>
               </div>
               
@@ -125,14 +127,20 @@ export default function AboutSection() {
               </div>
               
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium">
-                  <FileText className="mr-2 h-4 w-4" /> Download Resume
+                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
+                  <a href="/Aryan_Saxena_5_4_BA_NAW.pdf" target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-2 h-4 w-4" /> Download Resume
+                  </a>
                 </Button>
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium">
-                  <Linkedin className="mr-2 h-4 w-4" /> LinkedIn Profile
+                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
+                  <a href="https://www.linkedin.com/in/aryan-saxena-purdue/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="mr-2 h-4 w-4" /> LinkedIn Profile
+                  </a>
                 </Button>
-                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium">
-                  <Github className="mr-2 h-4 w-4" /> GitHub
+                <Button variant="link" className="text-primary hover:text-primary/80 transition font-medium" asChild>
+                  <a href="https://github.com/aryansaxena" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> GitHub
+                  </a>
                 </Button>
               </div>
             </div>
