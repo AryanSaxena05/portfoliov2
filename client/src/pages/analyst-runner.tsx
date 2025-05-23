@@ -11,29 +11,33 @@ export function AnalystRunnerSection() {
   }
 
   return (
-    <section id="analyst-runner-section" className="w-full bg-gradient-to-br from-gray-50 to-white py-16">
+    <section id="analyst-runner-section" className="w-full bg-[#0D1B2A] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Analyst Runner Game & Analytics</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Play the Analyst Runner game and see your jump response time analytics update in real time! Jump over obstacles, rack up your score, and analyze your gameplay instantly.
+          <h2 className="font-['Press_Start_2P'] text-3xl text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] mb-4">
+            Analyst Runner Game
+          </h2>
+          <p className="font-['Press_Start_2P'] text-sm text-[#89CFF0] max-w-2xl mx-auto leading-relaxed">
+            Test your reflexes and analyze your performance!
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
-          <div className="flex-1 min-w-[320px] bg-white rounded-lg shadow-lg p-4">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start max-w-[1200px] mx-auto">
+          <div className="w-full h-full flex flex-col">
             <AnalystRunnerGame onScoreUpdate={setScore} onJump={handleJump} />
           </div>
-          <div className="flex-1 min-w-[320px] bg-white rounded-lg shadow-lg p-4">
+          <div className="w-full h-full flex flex-col">
             <AnalystRunnerAnalytics responseTimes={responseTimes} />
           </div>
         </div>
-        <div className="mt-8 text-center">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">How to Play</h3>
-          <ul className="text-gray-600 space-y-1">
-            <li>Press <b>SPACE</b> or <b>UP ARROW</b> to jump over low (blue) obstacles</li>
-            <li>Hold <b>DOWN ARROW</b> or <b>S</b> to duck under high (orange) obstacles</li>
-            <li>Click the game to focus. After game over, click again to restart.</li>
-            <li>Watch your jump response time in the dashboard</li>
+
+        <div className="mt-12 text-center bg-[#0D1B2A] border-2 border-[#89CFF0] p-6 rounded-lg max-w-2xl mx-auto">
+          <h3 className="font-['Press_Start_2P'] text-[#FFB71F] text-lg mb-4">How to Play</h3>
+          <ul className="text-[#89CFF0] space-y-3 font-['Press_Start_2P'] text-xs">
+            <li>› Space/Up: Jump over blue blocks</li>
+            <li>› Down/S: Duck under orange blocks</li>
+            <li>› Click game to focus</li>
+            <li>› Watch your response time!</li>
           </ul>
         </div>
       </div>

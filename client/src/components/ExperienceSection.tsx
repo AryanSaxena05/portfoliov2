@@ -115,67 +115,76 @@ export default function ExperienceSection() {
   };
 
   return (
-    <section 
-      id="experience" 
+    <section
       ref={sectionRef}
-      className="py-20 bg-gray-50 opacity-0 translate-y-5 transition-all duration-700"
+      className="w-full min-h-screen bg-white py-24 transform opacity-0 translate-y-10 transition-all duration-700 ease-in-out"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Professional Experience</h2>
-            <p className="max-w-2xl mx-auto text-gray-600">
-              My career journey and professional experiences
-            </p>
-          </div>
-          
-          <div className="space-y-12">
-            {experiences.map((exp) => (
-              <div key={exp.id} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="p-6 sm:p-8">
-                  <div className="sm:flex sm:items-start sm:justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-charcoal">{exp.role}</h3>
-                      <p className="text-autumn font-medium mt-1">{exp.company}</p>
-                    </div>
-                    <div className="mt-2 sm:mt-0 flex items-center text-steel text-sm">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      <span>{exp.startDate} - {exp.endDate}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-3 flex items-center text-steel text-sm">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    <span>{exp.location}</span>
-                    {exp.isRemote && <span className="ml-2 inline-flex items-center text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full"><Globe className="h-3 w-3 mr-1" /> Remote</span>}
-                  </div>
-                  
-                  <div className="mt-6 space-y-4">
-                    {exp.description.map((item, index) => (
-                      <div key={index} className="flex">
-                        <div className="flex-shrink-0 mt-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-autumn mr-3 mt-1.5"></div>
-                        </div>
-                        <p className="text-steel">{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-6">
-                    <p className="text-sm font-medium text-charcoal mb-2">Skills</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, idx) => (
-                        <div key={idx} className="inline-flex items-center text-xs bg-gray-100 text-steel px-2.5 py-1.5 rounded-full">
-                          {getSkillIcon(skill)}
-                          <span className="ml-1.5">{skill}</span>
-                        </div>
-                      ))}
-                    </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="font-['Press_Start_2P'] text-3xl text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] mb-8">
+            Work Experience
+          </h2>
+        </div>
+
+        <div className="space-y-12">
+          {experiences.map((exp) => (
+            <div
+              key={exp.id}
+              className="bg-[#0D1B2A] border-2 border-[#89CFF0] p-6 rounded-lg transform transition-all duration-300 hover:scale-[1.02] hover:border-[#FFB71F]"
+            >
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                <div>
+                  <h3 className="font-['Press_Start_2P'] text-[#FFB71F] text-lg mb-2">
+                    {exp.company}
+                  </h3>
+                  <p className="text-[#89CFF0] font-['Press_Start_2P'] text-sm mb-2">
+                    {exp.role}
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4 mt-2 md:mt-0">
+                  <div className="flex items-center text-[#89CFF0]">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    <span className="text-xs font-['Press_Start_2P']">
+                      {exp.startDate} - {exp.endDate}
+                    </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="flex items-start space-x-2 mb-4">
+                <MapPin className="w-4 h-4 text-[#89CFF0] mt-1" />
+                <p className="text-[#89CFF0] text-sm font-['Press_Start_2P']">
+                  {exp.location}
+                  {exp.isRemote && (
+                    <span className="ml-2 text-[#FFB71F]">(Remote)</span>
+                  )}
+                </p>
+              </div>
+
+              <ul className="list-none space-y-2 mb-4">
+                {exp.description.map((desc, index) => (
+                  <li
+                    key={index}
+                    className="text-white text-sm pl-4 relative leading-relaxed"
+                  >
+                    <span className="absolute left-0 text-[#FFB71F]">›</span>
+                    {desc}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mt-4">
+                {exp.skills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-[#89CFF0] text-[#0D1B2A] px-3 py-1 rounded text-xs font-['Press_Start_2P'] inline-block"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

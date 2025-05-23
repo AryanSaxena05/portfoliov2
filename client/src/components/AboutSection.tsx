@@ -11,7 +11,6 @@ import {
   SiJupyter, SiApachespark, SiApachehadoop, SiDocker, 
   SiAmazon 
 } from "react-icons/si";
-import ParallaxGradientBackground from "./ParallaxGradientBackground";
 
 type Skill = {
   name: string;
@@ -114,109 +113,102 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <ParallaxGradientBackground>
-      <section 
-        id="about" 
-        ref={sectionRef}
-        className="py-20 opacity-0 translate-y-5 transition-all duration-700"
-        style={{ background: 'transparent' }}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col lg:flex-row lg:items-center">
-              <div className="w-full mt-8 lg:mt-0">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
-                <div className="space-y-4 text-gray-600">
-                  <p>
-                    I'm Aryan Saxena — a data-driven problem solver with a strong foundation in business analytics, consulting, and technology. I thrive at the intersection of logic and creativity, turning data into actionable insights that drive strategic decisions.
-                  </p>
-                  <p>
-                    Currently pursuing my MS in Business Analytics from Purdue University, I've led cross-functional teams in fast-paced consulting projects, built scalable analytics pipelines, and presented at national conferences. My experience spans everything from AI-powered customer tools to predictive modeling systems, including a published research paper in educational data mining.
-                  </p>
-                  <p>
-                    Outside of analytics, I'm equally passionate about music. I've been recognized with multiple Awards of Excellence in music during my undergrad and have been a top scorer three times at Trinity College London. Whether I'm fine-tuning a model or a melody, I bring the same intensity: clarity, discipline, and a desire to create lasting impact.
-                  </p>
-                  <p>
-                    Let's connect — whether you're into analytics, strategy, or just good music.
-                  </p>
+    <section 
+      id="about" 
+      ref={sectionRef}
+      className="py-20 opacity-0 translate-y-5 transition-all duration-700 bg-white"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-center">
+            <div className="w-full mt-8 lg:mt-0">
+              <h2 className="text-2xl sm:text-3xl font-['Press_Start_2P'] mb-6 text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] text-center">About Me</h2>
+              <div className="space-y-4 text-black">
+                <p>
+                  I'm Aryan Saxena — a data-driven problem solver with a strong foundation in business analytics, consulting, and technology. I thrive at the intersection of logic and creativity, turning data into actionable insights that drive strategic decisions.
+                </p>
+                <p>
+                  Currently pursuing my MS in Business Analytics from Purdue University, I've led cross-functional teams in fast-paced consulting projects, built scalable analytics pipelines, and presented at national conferences. My experience spans everything from AI-powered customer tools to predictive modeling systems, including a published research paper in educational data mining.
+                </p>
+                <p>
+                  Outside of analytics, I'm equally passionate about music. I've been recognized with multiple Awards of Excellence in music during my undergrad and have been a top scorer three times at Trinity College London. Whether I'm fine-tuning a model or a melody, I bring the same intensity: clarity, discipline, and a desire to create lasting impact.
+                </p>
+                <p>
+                  Let's connect — whether you're into analytics, strategy, or just good music.
+                </p>
+              </div>
+              
+              <div className="mt-12">
+                <h3 className="text-xl font-['Press_Start_2P'] mb-6 text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] text-center">My Skills</h3>
+                <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4">
+                  {skills.map((skill, index) => {
+                    const sizes = {
+                      'sm': 'text-xs md:text-sm',
+                      'md': 'text-sm md:text-base',
+                      'lg': 'text-base md:text-lg',
+                      'xl': 'text-lg md:text-xl'
+                    };
+                    
+                    const sizeClass = sizes[skill.size];
+                    
+                    const xOffset = Math.floor(Math.random() * 20) - 10;
+                    const yOffset = Math.floor(Math.random() * 10) - 5;
+                    
+                    return (
+                      <div 
+                        key={index}
+                        className={`
+                          ${sizeClass}
+                          px-3 py-2 rounded-full
+                          flex items-center gap-1.5
+                          hover:scale-110 transition-all duration-300
+                          shadow-sm
+                          bg-white
+                          border-2 border-[#89CFF0]/30
+                          hover:border-[#FFB71F] hover:text-[#FFB71F]
+                          hover:shadow-md
+                        `}
+                        style={{ transform: `translateX(${xOffset}px) translateY(${yOffset}px)` }}
+                      >
+                        <span className="text-[#89CFF0] group-hover:text-[#FFB71F]">{skill.icon}</span>
+                        <span className="font-medium text-[#2A4365]">{skill.name}</span>
+                      </div>
+                    );
+                  })}
                 </div>
-                
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold mb-6 text-charcoal">My Skills</h3>
-                  <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4">
-                    {/* Word cloud with improved styling */}
-                    {skills.map((skill, index) => {
-                      // Define sizes based on skill.size
-                      const sizes = {
-                        'sm': 'text-xs md:text-sm',
-                        'md': 'text-sm md:text-base',
-                        'lg': 'text-base md:text-lg',
-                        'xl': 'text-lg md:text-xl'
-                      };
-                      
-                      // Apply the appropriate size class
-                      const sizeClass = sizes[skill.size];
-                      
-                      // Random offset for more organic layout
-                      const xOffset = Math.floor(Math.random() * 20) - 10;
-                      const yOffset = Math.floor(Math.random() * 10) - 5;
-                      
-                      return (
-                        <div 
-                          key={index}
-                          className={`
-                            ${sizeClass}
-                            px-3 py-2 rounded-full
-                            flex items-center gap-1.5
-                            hover:scale-110 transition-all duration-300
-                            shadow-sm
-                            bg-gradient-to-r from-white to-gray-50
-                            border border-gray-200
-                            hover:border-autumn/50 hover:text-autumn
-                            hover:shadow-md
-                          `}
-                          style={{ transform: `translateX(${xOffset}px) translateY(${yOffset}px)` }}
-                        >
-                          <span className="text-autumn">{skill.icon}</span>
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
-                    <a href="https://drive.google.com/drive/folders/1gtbT-LVt4J6d305aFPBOyzBDAGCkHbRo?usp=sharing" target="_blank" rel="noopener noreferrer">
-                      <FileText className="mr-2 h-4 w-4" /> Download Resume
-                    </a>
-                  </Button>
-                  <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
-                    <a href="https://www.linkedin.com/in/aryan-saxena-7726b1218/" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="mr-2 h-4 w-4" /> LinkedIn Profile
-                    </a>
-                  </Button>
-                  <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
-                    <a href="https://github.com/AryanSaxena05" target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" /> GitHub
-                    </a>
-                  </Button>
-                  <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
-                    <a href="https://www.kaggle.com/aryansaxena05" target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" /> Kaggle
-                    </a>
-                  </Button>
-                  <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
-                    <a href="https://www.instagram.com/aryan.saxena05/" target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" /> Instagram
-                    </a>
-                  </Button>
-                </div>
+              </div>
+              
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://drive.google.com/drive/folders/1gtbT-LVt4J6d305aFPBOyzBDAGCkHbRo?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-2 h-4 w-4" /> Download Resume
+                  </a>
+                </Button>
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://www.linkedin.com/in/aryan-saxena-7726b1218/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="mr-2 h-4 w-4" /> LinkedIn Profile
+                  </a>
+                </Button>
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://github.com/AryanSaxena05" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> GitHub
+                  </a>
+                </Button>
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://www.kaggle.com/aryansaxena05" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> Kaggle
+                  </a>
+                </Button>
+                <Button variant="link" className="text-autumn hover:text-autumn/80 transition-all duration-300 font-medium transform hover:scale-105" asChild>
+                  <a href="https://www.instagram.com/aryan.saxena05/" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> Instagram
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </ParallaxGradientBackground>
+      </div>
+    </section>
   );
 }

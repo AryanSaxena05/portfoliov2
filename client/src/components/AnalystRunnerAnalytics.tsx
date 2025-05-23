@@ -51,45 +51,88 @@ export default function AnalystRunnerAnalytics({ responseTimes }: AnalystRunnerA
       {
         label: 'Response Time (ms)',
         data: last10Times,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
+        borderColor: '#89CFF0',
+        backgroundColor: 'rgba(137, 207, 240, 0.2)',
+        tension: 0.1,
+        borderWidth: 2
       }
     ]
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top' as const,
+        display: false
       },
       title: {
-        display: true,
-        text: 'Jump Response Time (ms)'
+        display: false
       }
     },
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        border: {
+          color: '#89CFF0'
+        },
+        grid: {
+          color: 'rgba(137, 207, 240, 0.1)'
+        },
+        ticks: {
+          font: {
+            family: '"Press Start 2P"',
+            size: 8
+          },
+          color: '#89CFF0',
+          maxTicksLimit: 6,
+          callback: function(value: any) {
+            return value + 'ms';
+          }
+        }
+      },
+      x: {
+        border: {
+          color: '#89CFF0'
+        },
+        grid: {
+          display: false
+        },
+        ticks: {
+          display: false
+        }
       }
     }
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-lg">
-      <Line data={data} options={options} />
-      <div className="mt-4 grid grid-cols-2 gap-4">
-        <div className="p-4 bg-blue-50 rounded-lg">
-          <h3 className="text-lg font-semibold text-blue-700">Last Response Time</h3>
-          <p className="text-2xl font-bold text-blue-900">{lastResponse} ms</p>
+    <div className="bg-[#0D1B2A] border-2 border-[#89CFF0] p-6 rounded-lg h-full flex flex-col">
+      <h3 className="font-['Press_Start_2P'] text-[#FFB71F] text-lg mb-6">Response Times</h3>
+      
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="bg-[#0D1B2A] border-2 border-[#89CFF0] p-4 rounded-lg flex flex-col justify-between">
+          <h4 className="font-['Press_Start_2P'] text-[#89CFF0] text-xs mb-2">
+            Last Jump
+          </h4>
+          <p className="font-['Press_Start_2P'] text-[#FFB71F] text-xl">
+            {lastResponse.toFixed(0)}
+            <span className="text-sm text-[#89CFF0] ml-1">ms</span>
+          </p>
         </div>
-        <div className="p-4 bg-green-50 rounded-lg">
-          <h3 className="text-lg font-semibold text-green-700">Avg Response Time</h3>
-          <p className="text-2xl font-bold text-green-900">
-            {avgResponse.toFixed(1)} ms
+        <div className="bg-[#0D1B2A] border-2 border-[#89CFF0] p-4 rounded-lg flex flex-col justify-between">
+          <h4 className="font-['Press_Start_2P'] text-[#89CFF0] text-xs mb-2">
+            Average
+          </h4>
+          <p className="font-['Press_Start_2P'] text-[#FFB71F] text-xl">
+            {avgResponse.toFixed(0)}
+            <span className="text-sm text-[#89CFF0] ml-1">ms</span>
           </p>
         </div>
       </div>
+
+      <div className="flex-1 bg-[#0D1B2A] border-2 border-[#89CFF0] p-4 rounded-lg min-h-[200px]">
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
-} 
+}

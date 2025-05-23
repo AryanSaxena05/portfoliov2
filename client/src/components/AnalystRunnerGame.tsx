@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import Phaser from 'phaser';
 
-// Placeholder dinosaur sprite (a green rectangle for now)
-const DINO_COLOR = 0x43a047;
-const OBSTACLE_COLOR = 0x1565c0;
-const GROUND_COLOR = 0x888888;
+// Game colors in retro arcade style
+const DINO_COLOR = 0xFFB71F;      // Gold player
+const OBSTACLE_COLOR = 0x89CFF0;   // Arcade blue obstacles
+const GROUND_COLOR = 0x43C6AC;     // Arcade teal ground
 
 class GameScene extends Phaser.Scene {
   private player!: Phaser.GameObjects.Rectangle;
@@ -25,7 +25,9 @@ class GameScene extends Phaser.Scene {
 
   constructor(config: { onScoreUpdate: (score: number) => void; onJump?: (responseTime: number) => void }) {
     super({ key: 'GameScene' });
-    this.onScoreUpdate = config.onScoreUpdate;
+    this.onScoreUpdate = (score: number) => {
+      config.onScoreUpdate(score);
+    };
     this.onJump = config.onJump;
   }
 
@@ -53,7 +55,11 @@ class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.obstacles, this.gameOver, undefined, this);
 
     // Score text
-    this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '20px', color: '#222' });
+    this.scoreText = this.add.text(16, 16, 'Score: 0', { 
+      fontSize: '20px', 
+      color: '#FFB71F',
+      fontFamily: '"Press Start 2P"'
+    });
 
     // Input handlers are now managed from React for focus control
     // Start spawning obstacles
@@ -141,7 +147,11 @@ class GameScene extends Phaser.Scene {
   gameOver() {
     this.isGameOver = true;
     this.physics.pause();
-    this.add.text(200, 120, 'Game Over', { fontSize: '32px', color: '#c62828' }).setOrigin(0.5);
+    this.add.text(200, 120, 'Game Over', { 
+      fontSize: '32px', 
+      color: '#FF47A3',
+      fontFamily: '"Press Start 2P"'
+    }).setOrigin(0.5);
     if (this.restartHandler) {
       this.input.once('pointerdown', () => {
         this.restartHandler && this.restartHandler();
@@ -159,6 +169,7 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
   const gameRef = useRef<Phaser.Game | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [score, setScore] = useState(0);
   const [restartFlag, setRestartFlag] = useState(0); // Used to force remount on restart
   const sceneRef = useRef<GameScene | null>(null);
   // Store the last jump time
@@ -172,7 +183,7 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
       width: 400,
       height: 300,
       parent: containerRef.current,
-      backgroundColor: '#f8fafc',
+      backgroundColor: '#0D1B2A',
       physics: {
         default: 'arcade',
         arcade: {
@@ -182,12 +193,19 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
       },
       scene: new (class extends GameScene {
         constructor() {
-          super({ onScoreUpdate, onJump });
+          super({ 
+            onScoreUpdate: (newScore) => {
+              setScore(newScore);
+              onScoreUpdate(newScore);
+            }, 
+            onJump 
+          });
         }
         create() {
           super.create();
           sceneRef.current = this;
           this.setRestartHandler(() => {
+            setScore(0);
             setRestartFlag(f => f + 1);
             setIsFocused(true);
           });
@@ -243,6 +261,7 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
     containerRef.current?.focus();
     // If game is over, restart
     if (sceneRef.current && sceneRef.current['isGameOver']) {
+      setScore(0);
       setRestartFlag(f => f + 1);
     }
   }
@@ -259,21 +278,32 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
   }, []);
 
   return (
-    <div
-      id="game-container"
-      ref={containerRef}
-      tabIndex={0}
-      style={{
-        width: 400,
-        height: 300,
-        margin: '0 auto',
-        outline: isFocused ? '3px solid #0070f3' : 'none',
-        borderRadius: 8,
-        boxShadow: isFocused ? '0 0 0 2px #0070f3' : '0 2px 8px rgba(0,0,0,0.08)',
-        cursor: 'pointer',
-        background: '#f8fafc',
-      }}
-      onClick={handleClick}
-    />
+    <div className="bg-[#0D1B2A] border-2 border-[#89CFF0] p-6 rounded-lg h-full">
+      <div className="flex flex-col h-full">
+        <div className="mb-6">
+          <h3 className="font-['Press_Start_2P'] text-[#FFB71F] text-lg">Score: {Math.floor(score)}</h3>
+        </div>
+        <div 
+          ref={containerRef}
+          onClick={() => setIsFocused(true)}
+          className="w-[400px] h-[300px] mx-auto cursor-pointer bg-[#0D1B2A]"
+          style={{ 
+            outline: isFocused ? '2px solid #FFB71F' : 'none',
+            borderRadius: '4px'
+          }}
+        />
+        <div className="mt-6 flex justify-between items-center">
+          <div className="font-['Press_Start_2P'] text-[#89CFF0] text-sm">
+            {isFocused ? 'Click to play!' : 'Game paused'}
+          </div>
+          <button
+            onClick={() => setRestartFlag(f => f + 1)}
+            className="bg-[#FFB71F] text-[#0D1B2A] font-['Press_Start_2P'] px-4 py-2 rounded hover:bg-[#89CFF0] transition-colors"
+          >
+            New Game
+          </button>
+        </div>
+      </div>
+    </div>
   );
-} 
+}

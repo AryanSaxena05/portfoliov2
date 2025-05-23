@@ -13,8 +13,8 @@ const ParallaxGradientBackground: React.FC<ParallaxGradientBackgroundProps> = ({
       const { innerWidth, innerHeight } = window;
       const x = e.clientX / innerWidth;
       const y = e.clientY / innerHeight;
-      // Calculate gradient position based on mouse
-      bgRef.current.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #ffffff 0%, #f0f0f0 100%)`;
+      // Calculate gradient position based on mouse - using retro arcade colors
+      bgRef.current.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #0D1B2A 0%, #020617 100%)`;
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);

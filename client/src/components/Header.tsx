@@ -11,7 +11,7 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
       
       // Check which section is currently visible
-      const sections = ['home', 'projects', 'experience', 'about', 'contact'];
+      const sections = ['home', 'projects', 'experience', 'about', 'contact', 'game'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -55,7 +55,7 @@ export default function Header() {
                 scrollToSection('home');
               }}
             >
-              <h1 className="text-xl font-bold cursor-pointer bg-gradient-to-r from-autumn to-amber-600 text-transparent bg-clip-text transition-all duration-300 transform hover:scale-105">Aryan Saxena</h1>
+              <h1 className="text-lg font-['Press_Start_2P'] cursor-pointer text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] transition-all duration-300 transform hover:scale-105">Aryan.S</h1>
             </a>
           </div>
           
@@ -69,8 +69,8 @@ export default function Header() {
                     e.preventDefault();
                     scrollToSection('home');
                   }}
-                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 cursor-pointer ${
-                    activeSection === "home" ? "text-autumn font-medium" : ""
+                  className={`relative nav-link group text-[#89CFF0] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "home" ? "text-[#FFB71F]" : ""
                   }`}
                 >
                   Home
@@ -124,6 +124,21 @@ export default function Header() {
               </li>
               <li>
                 <a 
+                  href="#game"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('game');
+                  }}
+                  className={`relative nav-link group text-[#89CFF0] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "game" ? "text-[#FFB71F]" : ""
+                  }`}
+                >
+                  Play Game
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              <li>
+                <a 
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
@@ -162,8 +177,8 @@ export default function Header() {
           <li>
             <a 
               href="#home"
-              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
-                activeSection === "home" ? "font-medium text-autumn bg-autumn/5" : ""
+              className={`block py-2 px-3 rounded-md text-[#89CFF0] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "home" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
                 e.preventDefault();

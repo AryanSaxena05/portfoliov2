@@ -4,12 +4,19 @@
 
 @layer base {
   :root {
-    --autumn: 31, 111, 72;  /* #A97148 */
-    --steel: 85, 93, 102;   /* #555D66 */
-    --beige: 215, 191, 167; /* #D7BFA7 */
-    --sky: 199, 204, 209;   /* #C7CCD1 */
-    --charcoal: 59, 59, 59; /* #3B3B3B */
-    --jet: 28, 28, 28;      /* #1C1C1C */
+    /* Retro arcade color palette */
+    --autumn: 255, 183, 31;    /* #FFB71F - Bright gold */
+    --steel: 137, 207, 240;    /* #89CFF0 - Arcade blue */
+    --beige: 255, 236, 153;    /* #FFEC99 - Light gold */
+    --sky: 67, 198, 172;       /* #43C6AC - Arcade teal */
+    --charcoal: 13, 27, 42;    /* #0D1B2A - Deep navy */
+    --jet: 2, 6, 23;          /* #020617 - Nearly black */
+    
+    /* New retro colors */
+    --neon-pink: 255, 71, 163;   /* #FF47A3 */
+    --neon-blue: 41, 121, 255;   /* #2979FF */
+    --neon-green: 68, 255, 136;  /* #44FF88 */
+    --pixel-gray: 149, 165, 166; /* #95A5A6 */
   }
 
   * {
@@ -18,10 +25,83 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    background: #0f172a;
+    image-rendering: pixelated;
+  }
+}
+
+@layer components {
+  .retro-container {
+    @apply border-4 border-white p-4 bg-black/80;
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2);
   }
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
+  .pixel-corners {
+    clip-path: polygon(
+      0 4px,
+      4px 4px,
+      4px 0,
+      calc(100% - 4px) 0,
+      calc(100% - 4px) 4px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      4px calc(100% - 4px),
+      0 calc(100% - 4px)
+    );
+  }
+
+  .retro-title {
+    font-family: 'Press Start 2P', system-ui;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    @apply tracking-wider;
+  }
+
+  .retro-button {
+    @apply px-4 py-2 border-2 border-white bg-black text-white transition-all duration-200;
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 12px;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  .retro-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  .retro-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  .pixel-bg {
+    background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -19px -19px;
+  }
+
+  /* Example additional styling */
+  .my-work-section {
+    background-color: #f7f7f7; /* light background */
+    padding: 2rem;
+  }
+
+  .subsection {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .section-title {
+    color: #333333;
+  }
+
+  .link {
+    font-size: 1rem;
+    color: #2563eb; /* Tailwind blue-600 */
   }
 }
