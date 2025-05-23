@@ -6,6 +6,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { AnalystRunnerSection } from "./analyst-runner";
 
 export default function Home() {
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <AnalystRunnerSection />
         <ProjectsSection />
         <ExperienceSection />
         <AboutSection />

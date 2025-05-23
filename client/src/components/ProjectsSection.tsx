@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Github, Link as LinkIcon, ChevronRight, ExternalLink, Youtube, BarChart3, BookOpen, Briefcase, Database, Code } from "lucide-react";
+import ParallaxGradientBackground from "./ParallaxGradientBackground";
 
 // Import project images
 import airbnbImage from "@assets/Airbnb Market Segmentation.png";
@@ -15,6 +16,8 @@ import marketingDashboardImage from "@assets/Marketing Dashboard.png";
 import nycPublicSchoolsImage from "@assets/NYC Public Schools Analysis.jpg";
 import studentPerformanceImage from "@assets/Student Performance Analysis System.png";
 import unionPacificImage from "@assets/Union Pacific – Tech Transformation.jpeg";
+import jetjinxImage from "@assets/jetjinx.png";
+import researchPaperImage from "@assets/research paper .png";
 
 // Google Drive portfolio folder URL
 const portfolioUrl = "https://drive.google.com/drive/folders/1oo7CMqRGDqOLcvm6M52kU921UT9chnza?usp=sharing";
@@ -53,6 +56,7 @@ type ResearchPaper = {
   abstract: string;
   publicationDate: string;
   link: string;
+  imageUrl?: string; // Add this line
 };
 
 
@@ -75,6 +79,15 @@ type GitHubProject = {
 
 // Sample data - Academic Projects
 const academicProjects: AcademicProject[] = [
+  {
+    id: 100,
+    title: "Boiler Jet Jinx",
+    description: `A Flask-based web application for flight delay prediction and optimization.\n\nFeatures:\n- Flight delay prediction using machine learning\n- Interactive data visualizations\n- Optimization recommendations\n- Modern, responsive UI`,
+    technologies: ["Flask", "Machine Learning", "Data Visualization", "Optimization", "Responsive UI"],
+    imageUrl: jetjinxImage,
+    demoUrl: "https://github.com/AryanSaxena05/JetJinx/tree/master?tab=readme-ov-file",
+    githubUrl: "https://github.com/AryanSaxena05/JetJinx/tree/master?tab=readme-ov-file"
+  },
   {
     id: 1,
     title: "NYC Public Schools Analysis",
@@ -129,7 +142,7 @@ const academicProjects: AcademicProject[] = [
     demoUrl: portfolioUrl,
     githubUrl: "#"
   }
-];
+];;
 
 // Sample data - Tableau Dashboards
 const tableauDashboards: TableauDashboard[] = [
@@ -154,7 +167,7 @@ const tableauDashboards: TableauDashboard[] = [
     imageUrl: britishAirwaysImage,
     dashboardUrl: "https://public.tableau.com/views/britishairwaysyoutube/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
   }
-];
+];;
 
 // Video Projects
 const videoProjects: VideoProject[] = [
@@ -164,7 +177,7 @@ const videoProjects: VideoProject[] = [
     description: "Demonstration of my analytical approach and project methodology in this comprehensive video showcasing the techniques and insights derived from my data science work.",
     videoUrl: "https://youtu.be/1BEwNre9-wo"
   }
-];
+];;
 
 // Research Papers
 const researchPapers: ResearchPaper[] = [
@@ -174,7 +187,8 @@ const researchPapers: ResearchPaper[] = [
     journal: "International Journal of Innovative Research in Technology",
     abstract: "This research paper provides a comprehensive comparative analysis of various machine learning algorithms for predictive analytics applications. The study evaluates performance metrics, computational efficiency, and practical implementation challenges across different business domains.",
     publicationDate: "May 2023",
-    link: "https://ijirt.org/Article?manuscript=164572"
+    link: "https://ijirt.org/Article?manuscript=164572",
+    imageUrl: researchPaperImage
   }
 ];
 
@@ -344,287 +358,296 @@ export default function ProjectsSection() {
   }, []);
 
   return (
-    <section 
-      id="projects" 
-      ref={sectionRef}
-      className="py-20 bg-gray-50 opacity-0 translate-y-5 transition-all duration-700"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-charcoal">My Work</h2>
-          <p className="max-w-2xl mx-auto text-steel">
-            Explore my projects, Tableau dashboards, YouTube videos, research papers, and coding work across multiple platforms showcasing my skills and contributions to the field.
-          </p>
+    <ParallaxGradientBackground>
+      <section 
+        id="projects" 
+        ref={sectionRef}
+        className="py-20 opacity-0 translate-y-5 transition-all duration-700"
+        style={{ background: 'transparent' }}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-charcoal">My Work</h2>
+            <p className="max-w-2xl mx-auto text-steel">
+              Explore my projects, Tableau dashboards, YouTube videos, research papers, and coding work across multiple platforms showcasing my skills and contributions to the field.
+            </p>
+          </div>
+
+          <Tabs defaultValue="academic" className="w-full" onValueChange={setActiveTab}>
+            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-8 w-full">
+              <TabsTrigger value="academic" className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden md:inline">Projects</span>
+                <span className="inline md:hidden">Projects</span>
+              </TabsTrigger>
+              <TabsTrigger value="tableau" className="flex items-center gap-2">
+                <BarChart3 className="h-4 w-4" />
+                <span className="hidden md:inline">Tableau</span>
+                <span className="inline md:hidden">Tableau</span>
+              </TabsTrigger>
+              <TabsTrigger value="video" className="flex items-center gap-2">
+                <Youtube className="h-4 w-4" />
+                <span className="hidden md:inline">YouTube</span>
+                <span className="inline md:hidden">YouTube</span>
+              </TabsTrigger>
+              <TabsTrigger value="research" className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden md:inline">Research</span>
+                <span className="inline md:hidden">Research</span>
+              </TabsTrigger>
+              <TabsTrigger value="kaggle" className="flex items-center gap-2">
+                <Database className="h-4 w-4" />
+                <span className="hidden md:inline">Kaggle</span>
+                <span className="inline md:hidden">Kaggle</span>
+              </TabsTrigger>
+              <TabsTrigger value="github" className="flex items-center gap-2">
+                <Github className="h-4 w-4" />
+                <span className="hidden md:inline">GitHub</span>
+                <span className="inline md:hidden">GitHub</span>
+              </TabsTrigger>
+            </TabsList>
+
+            {/* Academic Projects Tab */}
+            <TabsContent value="academic" className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {academicProjects.map((project) => (
+                  <Card 
+                    key={project.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <div className="w-full h-48 overflow-hidden">
+                      {project.imageUrl ? (
+                        <img 
+                          src={project.imageUrl} 
+                          alt={project.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                        />
+                      ) : (
+                        <ProjectSVG id={project.id} type="academic" />
+                      )}
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
+                      <p className="text-steel mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.technologies.map((tech, index) => (
+                          <TechBadge key={index} tech={tech} />
+                        ))}
+                      </div>
+                      <div className="flex justify-between items-center">
+                        {project.demoUrl && (
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-autumn hover:text-autumn/80 transition font-medium flex items-center gap-1">
+                            <LinkIcon className="h-4 w-4" /> View Details
+                          </a>
+                        )}
+                        {project.githubUrl && (
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-steel hover:text-charcoal transition">
+                            <Github className="h-5 w-5" /> 
+                          </a>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Tableau Dashboards Tab */}
+            <TabsContent value="tableau" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {tableauDashboards.map((dashboard) => (
+                  <Card 
+                    key={dashboard.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <div className="w-full h-48 overflow-hidden">
+                      {dashboard.imageUrl ? (
+                        <img 
+                          src={dashboard.imageUrl} 
+                          alt={dashboard.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                        />
+                      ) : (
+                        <ProjectSVG id={dashboard.id} type="tableau" />
+                      )}
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{dashboard.title}</h3>
+                      <p className="text-steel mb-4">
+                        {dashboard.description}
+                      </p>
+                      <a 
+                        href={dashboard.dashboardUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 rounded-md bg-cyan-600 text-white hover:bg-cyan-700 transition-colors"
+                      >
+                        <BarChart3 className="w-4 h-4 mr-2" />
+                        View Dashboard
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* YouTube Videos Tab */}
+            <TabsContent value="video" className="space-y-6">
+              <div className="grid grid-cols-1 gap-8">
+                {videoProjects.map((video) => (
+                  <Card 
+                    key={video.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{video.title}</h3>
+                      <p className="text-steel mb-4">
+                        {video.description}
+                      </p>
+                      <YouTubeEmbed videoUrl={video.videoUrl} />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Research Papers Tab */}
+            <TabsContent value="research" className="space-y-6">
+              <div className="grid grid-cols-1 gap-8">
+                {researchPapers.map((paper) => (
+                  <Card 
+                    key={paper.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                  >
+                    <div className="w-full h-48 overflow-hidden">
+                      {paper.imageUrl ? (
+                        <img 
+                          src={paper.imageUrl} 
+                          alt={paper.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                        />
+                      ) : (
+                        <ProjectSVG id={paper.id} type="research" />
+                      )}
+                    </div>
+                    <CardContent className="p-6">
+                      <Badge className="mb-2 bg-indigo-100 text-indigo-800 hover:bg-indigo-200">{paper.journal}</Badge>
+                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{paper.title}</h3>
+                      <p className="text-sm text-steel mb-2">Published: {paper.publicationDate}</p>
+                      <p className="text-steel mb-6">
+                        {paper.abstract}
+                      </p>
+                      <a 
+                        href={paper.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 rounded-md bg-autumn text-white hover:bg-autumn/90 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Read Full Paper
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Kaggle Projects Tab */}
+            <TabsContent value="kaggle" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {kaggleProjects.length > 0 ? (
+                  kaggleProjects.map((project) => (
+                    <Card 
+                      key={project.id}
+                      className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                    >
+                      <div className="w-full">
+                        <ProjectSVG id={project.id} type="kaggle" />
+                      </div>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
+                        <p className="text-steel mb-4">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {project.technologies.map((tech, index) => (
+                            <TechBadge key={index} tech={tech} />
+                          ))}
+                        </div>
+                        <a 
+                          href={project.kaggleUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+                        >
+                          <Database className="w-4 h-4 mr-2" />
+                          View on Kaggle
+                        </a>
+                      </CardContent>
+                    </Card>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <Database className="h-16 w-16 mx-auto text-gray-300 mb-4" />
+                    <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
+                    <p className="text-steel max-w-md mx-auto">
+                      I'm currently working on some interesting Kaggle projects. Check back soon to see my data science competitions and notebooks!
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+
+            {/* GitHub Projects Tab */}
+            <TabsContent value="github" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {githubProjects.length > 0 ? (
+                  githubProjects.map((project) => (
+                    <Card 
+                      key={project.id}
+                      className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
+                    >
+                      <div className="w-full">
+                        <ProjectSVG id={project.id} type="github" />
+                      </div>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
+                        <p className="text-steel mb-4">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {project.technologies.map((tech, index) => (
+                            <TechBadge key={index} tech={tech} />
+                          ))}
+                        </div>
+                        <a 
+                          href={project.githubUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-colors"
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          View Repository
+                        </a>
+                      </CardContent>
+                    </Card>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <Github className="h-16 w-16 mx-auto text-gray-300 mb-4" />
+                    <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
+                    <p className="text-steel max-w-md mx-auto">
+                      I'm currently working on pushing my projects to GitHub. Check back soon to explore my code repositories!
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
-
-        <Tabs defaultValue="academic" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-8 w-full">
-            <TabsTrigger value="academic" className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              <span className="hidden md:inline">Projects</span>
-              <span className="inline md:hidden">Projects</span>
-            </TabsTrigger>
-            <TabsTrigger value="tableau" className="flex items-center gap-2">
-              <BarChart3 className="h-4 w-4" />
-              <span className="hidden md:inline">Tableau</span>
-              <span className="inline md:hidden">Tableau</span>
-            </TabsTrigger>
-            <TabsTrigger value="video" className="flex items-center gap-2">
-              <Youtube className="h-4 w-4" />
-              <span className="hidden md:inline">YouTube</span>
-              <span className="inline md:hidden">YouTube</span>
-            </TabsTrigger>
-            <TabsTrigger value="research" className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              <span className="hidden md:inline">Research</span>
-              <span className="inline md:hidden">Research</span>
-            </TabsTrigger>
-            <TabsTrigger value="kaggle" className="flex items-center gap-2">
-              <Database className="h-4 w-4" />
-              <span className="hidden md:inline">Kaggle</span>
-              <span className="inline md:hidden">Kaggle</span>
-            </TabsTrigger>
-            <TabsTrigger value="github" className="flex items-center gap-2">
-              <Github className="h-4 w-4" />
-              <span className="hidden md:inline">GitHub</span>
-              <span className="inline md:hidden">GitHub</span>
-            </TabsTrigger>
-          </TabsList>
-
-          {/* Academic Projects Tab */}
-          <TabsContent value="academic" className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {academicProjects.map((project) => (
-                <Card 
-                  key={project.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                >
-                  <div className="w-full h-48 overflow-hidden">
-                    {project.imageUrl ? (
-                      <img 
-                        src={project.imageUrl} 
-                        alt={project.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                      />
-                    ) : (
-                      <ProjectSVG id={project.id} type="academic" />
-                    )}
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
-                    <p className="text-steel mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.technologies.map((tech, index) => (
-                        <TechBadge key={index} tech={tech} />
-                      ))}
-                    </div>
-                    <div className="flex justify-between items-center">
-                      {project.demoUrl && (
-                        <a href={project.demoUrl} className="text-autumn hover:text-autumn/80 transition font-medium flex items-center gap-1">
-                          <LinkIcon className="h-4 w-4" /> View Details
-                        </a>
-                      )}
-                      {project.githubUrl && (
-                        <a href={project.githubUrl} className="text-steel hover:text-charcoal transition">
-                          <Github className="h-5 w-5" />
-                        </a>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Tableau Dashboards Tab */}
-          <TabsContent value="tableau" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {tableauDashboards.map((dashboard) => (
-                <Card 
-                  key={dashboard.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                >
-                  <div className="w-full h-48 overflow-hidden">
-                    {dashboard.imageUrl ? (
-                      <img 
-                        src={dashboard.imageUrl} 
-                        alt={dashboard.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                      />
-                    ) : (
-                      <ProjectSVG id={dashboard.id} type="tableau" />
-                    )}
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-charcoal">{dashboard.title}</h3>
-                    <p className="text-steel mb-4">
-                      {dashboard.description}
-                    </p>
-                    <a 
-                      href={dashboard.dashboardUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 rounded-md bg-cyan-600 text-white hover:bg-cyan-700 transition-colors"
-                    >
-                      <BarChart3 className="w-4 h-4 mr-2" />
-                      View Dashboard
-                    </a>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* YouTube Videos Tab */}
-          <TabsContent value="video" className="space-y-6">
-            <div className="grid grid-cols-1 gap-8">
-              {videoProjects.map((video) => (
-                <Card 
-                  key={video.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                >
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-charcoal">{video.title}</h3>
-                    <p className="text-steel mb-4">
-                      {video.description}
-                    </p>
-                    <YouTubeEmbed videoUrl={video.videoUrl} />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Research Papers Tab */}
-          <TabsContent value="research" className="space-y-6">
-            <div className="grid grid-cols-1 gap-8">
-              {researchPapers.map((paper) => (
-                <Card 
-                  key={paper.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                >
-                  <div className="w-full">
-                    <ProjectSVG id={paper.id} type="research" />
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge className="mb-2 bg-indigo-100 text-indigo-800 hover:bg-indigo-200">{paper.journal}</Badge>
-                    <h3 className="text-xl font-semibold mb-2 text-charcoal">{paper.title}</h3>
-                    <p className="text-sm text-steel mb-2">Published: {paper.publicationDate}</p>
-                    <p className="text-steel mb-6">
-                      {paper.abstract}
-                    </p>
-                    <a 
-                      href={paper.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 rounded-md bg-autumn text-white hover:bg-autumn/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Read Full Paper
-                    </a>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-
-
-          {/* Kaggle Projects Tab */}
-          <TabsContent value="kaggle" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {kaggleProjects.length > 0 ? (
-                kaggleProjects.map((project) => (
-                  <Card 
-                    key={project.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                  >
-                    <div className="w-full">
-                      <ProjectSVG id={project.id} type="kaggle" />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
-                      <p className="text-steel mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-5">
-                        {project.technologies.map((tech, index) => (
-                          <TechBadge key={index} tech={tech} />
-                        ))}
-                      </div>
-                      <a 
-                        href={project.kaggleUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
-                      >
-                        <Database className="w-4 h-4 mr-2" />
-                        View on Kaggle
-                      </a>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                <div className="col-span-full text-center py-12">
-                  <Database className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-                  <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
-                  <p className="text-steel max-w-md mx-auto">
-                    I'm currently working on some interesting Kaggle projects. Check back soon to see my data science competitions and notebooks!
-                  </p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-
-          {/* GitHub Projects Tab */}
-          <TabsContent value="github" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {githubProjects.length > 0 ? (
-                githubProjects.map((project) => (
-                  <Card 
-                    key={project.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow duration-300 hover:-translate-y-1 transition-transform border-sky border-opacity-20"
-                  >
-                    <div className="w-full">
-                      <ProjectSVG id={project.id} type="github" />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-charcoal">{project.title}</h3>
-                      <p className="text-steel mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-5">
-                        {project.technologies.map((tech, index) => (
-                          <TechBadge key={index} tech={tech} />
-                        ))}
-                      </div>
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-colors"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        View Repository
-                      </a>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                <div className="col-span-full text-center py-12">
-                  <Github className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-                  <h3 className="text-xl font-medium text-charcoal mb-2">Coming Soon</h3>
-                  <p className="text-steel max-w-md mx-auto">
-                    I'm currently working on pushing my projects to GitHub. Check back soon to explore my code repositories!
-                  </p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
-    </section>
+      </section>
+    </ParallaxGradientBackground>
   );
 }

@@ -16,6 +16,22 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    id: 0,
+    company: "Kearney Student Lab",
+    role: "Business Analyst Intern",
+    location: "West Lafayette, Indiana, United States",
+    isRemote: false,
+    startDate: "Jan 2025",
+    endDate: "May 2025",
+    description: [
+      "Managed 6-member team to extract CRM data using SQL, Python & advanced Excel, developing scalable ETL workflows for high-volume client reporting (70K+ records), achieving $1.7M in cost savings and $204K in added profit.",
+      "Conducted campaign ROI analyses & A/B test simulations to uncover a 24.2% perceived share gap, equipping investor relations teams with strategic collateral that increased client contribution by 20%.",
+      "Collaborated with stakeholders to document client-specific pricing clauses & build custom financial models supporting contract-level profitability analysis, boosting data trust score by 18%.",
+      "Constructed regression & classification models to forecast campaign & pricing outcomes; visualized marketing insights via Tableau."
+    ],
+    skills: ["SQL", "Python", "Excel", "ETL", "Data Analysis", "Financial Modeling", "Tableau", "Regression Analysis", "Team Leadership", "Stakeholder Management"]
+  },
+  {
     id: 1,
     company: "Confidential Telecommunication Start-up",
     role: "Management Consulting Engagement",
@@ -24,8 +40,10 @@ const experiences: Experience[] = [
     startDate: "Sep 2024",
     endDate: "Dec 2024",
     description: [
-      "Provided insights and strategy for a successful product launch by leveraging projected travel eSIM spending growth of 5-fold.",
-      "Designed a strategy for expansion in new geography with improved customer support and pricing, targeting a market with 19.7% CAGR."
+      "Analysed TCO (~$150K) across platforms using Python & Excel to support strategic investment decisions & fund reporting.",
+      "Benchmarked peer financials (debt-to-equity, P&L) to enhance investor materials and contributed to a 15% reduction in client debt through improved reporting insights.",
+      "Developed competitor product gap analyses & structured SWOT frameworks to inform due diligence responses for both business & technical stakeholders, strengthening marketing collateral for future.",
+      "Assessed market growth, pricing sensitivity & service KPIs to support data-driven fundraising & GTM strategy development."
     ],
     skills: ["Management Consulting", "Teamwork", "Microsoft Excel", "Data Modeling"]
   },
