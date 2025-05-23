@@ -105,55 +105,55 @@ export default function ContactSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl font-['Press_Start_2P'] mb-4 text-[#0D1B2A] drop-shadow-[0_2px_2px_rgba(13,27,42,0.1)]">Get In Touch</h2>
-              <p className="max-w-2xl mx-auto text-[#0D1B2A]/70 text-sm">
+              <h2 className="text-2xl sm:text-3xl font-['Press_Start_2P'] mb-4 text-[color:var(--charcoal)] drop-shadow-[0_2px_2px_rgba(13,27,42,0.1)]">Get In Touch</h2>
+              <p className="max-w-2xl mx-auto text-[color:var(--charcoal)]/70 text-sm">
                 Have a project in mind or want to collaborate? Feel free to reach out!
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
               <div className="md:col-span-2 space-y-8">
-                <div className="bg-[#0D1B2A] p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                  <h3 className="text-xl font-['Press_Start_2P'] mb-4 text-[#FFB71F] text-sm">Contact Info</h3>
+                <div className="bg-[color:var(--charcoal)] p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-xl font-['Press_Start_2P'] mb-4 text-[color:var(--autumn)] text-sm">Contact Info</h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="text-[#FFB71F] mt-1 mr-4">
+                      <div className="text-[color:var(--autumn)] mt-1 mr-4">
                         <Mail className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-['Press_Start_2P'] text-xs text-[#FFB71F]">Email</p>
-                        <a href="mailto:aryan.saxena2002@gmail.com" className="text-[#89CFF0] hover:text-[#FFB71F] transition-colors text-sm">
+                        <p className="font-['Press_Start_2P'] text-xs text-[color:var(--autumn)]">Email</p>
+                        <a href="mailto:aryan.saxena2002@gmail.com" className="text-[color:var(--steel)] hover:text-[color:var(--autumn)] transition-colors text-sm">
                           aryan.saxena2002@gmail.com
                         </a>
                       </div>
                     </div>
                     
                     <div className="flex items-start">
-                      <div className="text-[#FFB71F] mt-1 mr-4">
+                      <div className="text-[color:var(--autumn)] mt-1 mr-4">
                         <Phone className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-['Press_Start_2P'] text-xs text-[#FFB71F]">Phone</p>
-                        <a href="tel:+17657757415" className="text-[#89CFF0] hover:text-[#FFB71F] transition-colors text-sm">
+                        <p className="font-['Press_Start_2P'] text-xs text-[color:var(--autumn)]">Phone</p>
+                        <a href="tel:+17657757415" className="text-[color:var(--steel)] hover:text-[color:var(--autumn)] transition-colors text-sm">
                           +1 (765) 775-7415
                         </a>
                       </div>
                     </div>
                     
                     <div className="flex items-start">
-                      <div className="text-[#FFB71F] mt-1 mr-4">
+                      <div className="text-[color:var(--autumn)] mt-1 mr-4">
                         <MapPin className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-['Press_Start_2P'] text-xs text-[#FFB71F]">Location</p>
-                        <p className="text-[#89CFF0] text-sm">West Lafayette, IN</p>
+                        <p className="font-['Press_Start_2P'] text-xs text-[color:var(--autumn)]">Location</p>
+                        <p className="text-[color:var(--steel)] text-sm">West Lafayette, IN</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-[#0D1B2A] p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                  <h3 className="text-xl font-['Press_Start_2P'] mb-6 text-[#FFB71F] text-sm">Connect</h3>
+                <div className="bg-[color:var(--charcoal)] p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-xl font-['Press_Start_2P'] mb-6 text-[color:var(--autumn)] text-sm">Connect</h3>
                   <div className="flex space-x-4">
                     <a 
                       href="https://www.linkedin.com/in/aryan-saxena-7726b1218/" 
@@ -192,7 +192,7 @@ export default function ContactSection() {
               </div>
               
               <div className="md:col-span-3">
-                <div className="bg-[#0D1B2A] rounded-xl shadow-lg p-8 transform transition-all duration-500 hover:shadow-xl">
+                <div className="bg-[color:var(--charcoal)] rounded-xl shadow-lg p-8 transform transition-all duration-500 hover:shadow-xl">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                       <FormField
@@ -200,12 +200,12 @@ export default function ContactSection() {
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#FFB71F] font-['Press_Start_2P'] text-xs">Name</FormLabel>
+                            <FormLabel className="text-[color:var(--autumn)] font-['Press_Start_2P'] text-xs">Name</FormLabel>
                             <FormControl>
                               <Input 
                                 placeholder="Your name" 
                                 {...field} 
-                                className="bg-[#0D1B2A]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[#FFB71F]/50 transition-all duration-300"
+                                className="bg-[color:var(--charcoal)]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[color:var(--autumn)]/50 transition-all duration-300"
                               />
                             </FormControl>
                             <FormMessage />
@@ -218,12 +218,12 @@ export default function ContactSection() {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#FFB71F] font-['Press_Start_2P'] text-xs">Email</FormLabel>
+                            <FormLabel className="text-[color:var(--autumn)] font-['Press_Start_2P'] text-xs">Email</FormLabel>
                             <FormControl>
                               <Input 
                                 placeholder="Your email address" 
                                 {...field} 
-                                className="bg-[#0D1B2A]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[#FFB71F]/50 transition-all duration-300"
+                                className="bg-[color:var(--charcoal)]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[color:var(--autumn)]/50 transition-all duration-300"
                               />
                             </FormControl>
                             <FormMessage />
@@ -236,12 +236,12 @@ export default function ContactSection() {
                         name="subject"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#FFB71F] font-['Press_Start_2P'] text-xs">Subject</FormLabel>
+                            <FormLabel className="text-[color:var(--autumn)] font-['Press_Start_2P'] text-xs">Subject</FormLabel>
                             <FormControl>
                               <Input 
                                 placeholder="Subject" 
                                 {...field} 
-                                className="bg-[#0D1B2A]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[#FFB71F]/50 transition-all duration-300"
+                                className="bg-[color:var(--charcoal)]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[color:var(--autumn)]/50 transition-all duration-300"
                               />
                             </FormControl>
                             <FormMessage />
@@ -254,11 +254,11 @@ export default function ContactSection() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#FFB71F] font-['Press_Start_2P'] text-xs">Message</FormLabel>
+                            <FormLabel className="text-[color:var(--autumn)] font-['Press_Start_2P'] text-xs">Message</FormLabel>
                             <FormControl>
                               <Textarea 
                                 placeholder="Your message" 
-                                className="min-h-[120px] bg-[#0D1B2A]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[#FFB71F]/50 transition-all duration-300" 
+                                className="min-h-[120px] bg-[color:var(--charcoal)]/80 border-[#89CFF0] text-[#89CFF0] placeholder:text-[#89CFF0]/50 focus:ring-2 focus:ring-[color:var(--autumn)]/50 transition-all duration-300" 
                                 {...field} 
                               />
                             </FormControl>
@@ -269,7 +269,7 @@ export default function ContactSection() {
                       
                       <Button 
                         type="submit" 
-                        className="w-full font-['Press_Start_2P'] text-xs bg-[#FFB71F] text-[#0D1B2A] hover:bg-[#FFB71F]/90 transition-all duration-300 transform hover:scale-[1.02] border-2 border-[#0D1B2A] shadow-[4px_4px_0px_#0D1B2A]"
+                        className="w-full font-['Press_Start_2P'] text-xs bg-[color:var(--autumn)] text-[color:var(--charcoal)] hover:bg-[color:var(--autumn)]/90 transition-all duration-300 transform hover:scale-[1.02] border-2 border-[#0D1B2A] shadow-[4px_4px_0px_#0D1B2A]"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}

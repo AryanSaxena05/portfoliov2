@@ -420,10 +420,10 @@ export default function ProjectsSection() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-['Press_Start_2P'] text-3xl text-[#FFB71F] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] mb-4">
+            <h2 className="font-['Press_Start_2P'] text-3xl text-[color:var(--autumn)] drop-shadow-[0_2px_2px_rgba(255,183,31,0.3)] mb-4">
               My Work
             </h2>
-            <p className="text-[#89CFF0] max-w-2xl mx-auto">
+            <p className="text-[color:var(--steel)] max-w-2xl mx-auto">
               A showcase of my projects and contributions
             </p>
           </div>

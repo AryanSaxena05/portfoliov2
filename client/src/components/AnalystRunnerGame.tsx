@@ -11,7 +11,6 @@ class GameScene extends Phaser.Scene {
   private obstacles!: Phaser.Physics.Arcade.Group;
   private ground!: Phaser.GameObjects.Rectangle;
   private score: number = 0;
-  private scoreText!: Phaser.GameObjects.Text;
   private gameSpeed: number = 5;
   private isGameOver: boolean = false;
   private onScoreUpdate: (score: number) => void;
@@ -54,15 +53,9 @@ class GameScene extends Phaser.Scene {
     // Add collision between player and obstacles
     this.physics.add.collider(this.player, this.obstacles, this.gameOver, undefined, this);
 
-    // Score text
-    this.scoreText = this.add.text(16, 16, 'Score: 0', { 
-      fontSize: '20px', 
-      color: '#FFB71F',
-      fontFamily: '"Press Start 2P"'
-    });
-
+    // In update(), keep box behind text and update score
     // Input handlers are now managed from React for focus control
-    // Start spawning obstacles
+    // Start spawning obstacles (fix API)
     this.time.addEvent({
       delay: 1200,
       callback: this.spawnObstacle,
@@ -78,7 +71,6 @@ class GameScene extends Phaser.Scene {
 
     // Update score
     this.score += 0.1;
-    this.scoreText.setText(`Score: ${Math.floor(this.score)}`);
     this.onScoreUpdate(Math.floor(this.score));
 
     // Move obstacles
@@ -147,11 +139,22 @@ class GameScene extends Phaser.Scene {
   gameOver() {
     this.isGameOver = true;
     this.physics.pause();
-    this.add.text(200, 120, 'Game Over', { 
-      fontSize: '32px', 
-      color: '#FF47A3',
-      fontFamily: '"Press Start 2P"'
-    }).setOrigin(0.5);
+    // Game Over text in big pink, no border, 256px font size
+    this.add.text(200, 120, 'Game Over', {
+      fontSize: '256px',
+      color: '#FF47A3', // neon pink
+      fontFamily: 'Press Start 2P',
+      align: 'center',
+      stroke: undefined,
+      strokeThickness: 0,
+      shadow: {
+        offsetX: 4,
+        offsetY: 4,
+        color: '#0D1B2A',
+        blur: 0,
+        fill: true
+      }
+    }).setOrigin(0.5).setDepth(11);
     if (this.restartHandler) {
       this.input.once('pointerdown', () => {
         this.restartHandler && this.restartHandler();
@@ -286,19 +289,28 @@ export default function AnalystRunnerGame({ onScoreUpdate, onJump }: AnalystRunn
         <div 
           ref={containerRef}
           onClick={() => setIsFocused(true)}
-          className="w-[400px] h-[300px] mx-auto cursor-pointer bg-[#0D1B2A]"
+          className="w-[400px] h-[300px] mx-auto cursor-pointer bg-[#0D1B2A] relative"
           style={{ 
             outline: isFocused ? '2px solid #FFB71F' : 'none',
             borderRadius: '4px'
           }}
-        />
+        >
+          {/* For click-to-play overlay */}
+          {!isFocused && (
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <span className="bg-[#0D1B2A]/90 border-2 border-[#89CFF0] text-[#FFB71F] font-['Press_Start_2P'] px-6 py-3 rounded text-lg shadow-lg">
+                Click to Play
+              </span>
+            </div>
+          )}
+        </div>
         <div className="mt-6 flex justify-between items-center">
           <div className="font-['Press_Start_2P'] text-[#89CFF0] text-sm">
             {isFocused ? 'Click to play!' : 'Game paused'}
           </div>
           <button
             onClick={() => setRestartFlag(f => f + 1)}
-            className="bg-[#FFB71F] text-[#0D1B2A] font-['Press_Start_2P'] px-4 py-2 rounded hover:bg-[#89CFF0] transition-colors"
+            className="bg-transparent border-2 border-[#89CFF0] text-[#FFB71F] font-['Press_Start_2P'] px-4 py-2 rounded hover:bg-[#89CFF0]/10 transition-colors"
           >
             New Game
           </button>

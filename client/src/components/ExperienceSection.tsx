@@ -138,14 +138,14 @@ export default function ExperienceSection() {
                   <h3 className="font-['Press_Start_2P'] text-[#FFB71F] text-lg mb-2">
                     {exp.company}
                   </h3>
-                  <p className="text-[#2563EB] font-['Press_Start_2P'] text-sm mb-2">
+                  <p className="text-[#89CFF0] font-['Press_Start_2P'] text-sm mb-2">
                     {exp.role}
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 mt-2 md:mt-0">
-                  <div className="flex items-center text-[#2563EB]">
+                  <div className="flex items-center text-[#89CFF0]">
                     <Calendar className="w-4 h-4 mr-2" />
-                    <span className="text-xs font-['Press_Start_2P']">
+                    <span className="text-xs font-['Press_Start_2P'] text-[#89CFF0]">
                       {exp.startDate} - {exp.endDate}
                     </span>
                   </div>
@@ -153,8 +153,8 @@ export default function ExperienceSection() {
               </div>
 
               <div className="flex items-start space-x-2 mb-4">
-                <MapPin className="w-4 h-4 text-[#2563EB] mt-1" />
-                <p className="text-[#2563EB] text-sm font-['Press_Start_2P']">
+                <MapPin className="w-4 h-4 text-[#89CFF0] mt-1" />
+                <p className="text-[#89CFF0] text-sm font-['Press_Start_2P']">
                   {exp.location}
                   {exp.isRemote && (
                     <span className="ml-2 text-[#FFB71F]">(Remote)</span>
