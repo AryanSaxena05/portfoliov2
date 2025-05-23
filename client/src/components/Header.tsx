@@ -31,7 +31,9 @@ export default function Header() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    // Map 'game' to 'analyst-runner-section' for correct scrolling
+    const actualId = sectionId === 'game' ? 'analyst-runner-section' : sectionId;
+    document.getElementById(actualId)?.scrollIntoView({ behavior: 'smooth' });
     setActiveSection(sectionId);
   };
   
@@ -69,57 +71,12 @@ export default function Header() {
                     e.preventDefault();
                     scrollToSection('home');
                   }}
-                  className={`relative nav-link group text-[#89CFF0] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
                     activeSection === "home" ? "text-[#FFB71F]" : ""
                   }`}
                 >
                   Home
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('projects');
-                  }}
-                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 cursor-pointer ${
-                    activeSection === "projects" ? "text-autumn font-medium" : ""
-                  }`}
-                >
-                  My Work
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#experience"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('experience');
-                  }}
-                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 cursor-pointer ${
-                    activeSection === "experience" ? "text-autumn font-medium" : ""
-                  }`}
-                >
-                  Professional Experience
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('about');
-                  }}
-                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 cursor-pointer ${
-                    activeSection === "about" ? "text-autumn font-medium" : ""
-                  }`}
-                >
-                  About Me
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
@@ -129,11 +86,56 @@ export default function Header() {
                     e.preventDefault();
                     scrollToSection('game');
                   }}
-                  className={`relative nav-link group text-[#89CFF0] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
                     activeSection === "game" ? "text-[#FFB71F]" : ""
                   }`}
                 >
                   Play Game
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#projects"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('projects');
+                  }}
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "projects" ? "text-[#FFB71F]" : ""
+                  }`}
+                >
+                  My Work
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#experience"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('experience');
+                  }}
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "experience" ? "text-[#FFB71F]" : ""
+                  }`}
+                >
+                  Work Experience
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('about');
+                  }}
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "about" ? "text-[#FFB71F]" : ""
+                  }`}
+                >
+                  About Me
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
@@ -144,12 +146,12 @@ export default function Header() {
                     e.preventDefault();
                     scrollToSection('contact');
                   }}
-                  className={`relative nav-link group text-steel hover:text-autumn transition-all duration-300 cursor-pointer ${
-                    activeSection === "contact" ? "text-autumn font-medium" : ""
+                  className={`relative nav-link group text-[#2563EB] hover:text-[#FFB71F] transition-all duration-300 cursor-pointer font-['Press_Start_2P'] text-xs ${
+                    activeSection === "contact" ? "text-[#FFB71F]" : ""
                   }`}
                 >
                   Get In Touch
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-autumn transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFB71F] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -177,7 +179,7 @@ export default function Header() {
           <li>
             <a 
               href="#home"
-              className={`block py-2 px-3 rounded-md text-[#89CFF0] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
                 activeSection === "home" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
@@ -191,9 +193,24 @@ export default function Header() {
           </li>
           <li>
             <a 
+              href="#game"
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "game" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('game');
+                closeMobileMenu();
+              }}
+            >
+              Play Game
+            </a>
+          </li>
+          <li>
+            <a 
               href="#projects"
-              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
-                activeSection === "projects" ? "font-medium text-autumn bg-autumn/5" : ""
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "projects" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -207,8 +224,8 @@ export default function Header() {
           <li>
             <a 
               href="#experience"
-              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
-                activeSection === "experience" ? "font-medium text-autumn bg-autumn/5" : ""
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "experience" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -216,14 +233,14 @@ export default function Header() {
                 closeMobileMenu();
               }}
             >
-              Professional Experience
+              Work Experience
             </a>
           </li>
           <li>
             <a 
               href="#about"
-              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
-                activeSection === "about" ? "font-medium text-autumn bg-autumn/5" : ""
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "about" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -237,8 +254,8 @@ export default function Header() {
           <li>
             <a 
               href="#contact"
-              className={`block py-2 px-3 rounded-md text-steel hover:text-autumn hover:bg-autumn/10 transition-all duration-300 transform hover:translate-x-1 ${
-                activeSection === "contact" ? "font-medium text-autumn bg-autumn/5" : ""
+              className={`block py-2 px-3 rounded-md text-[#2563EB] hover:text-[#FFB71F] hover:bg-[#FFB71F]/10 transition-all duration-300 transform hover:translate-x-1 font-['Press_Start_2P'] text-xs ${
+                activeSection === "contact" ? "text-[#FFB71F] bg-[#FFB71F]/5" : ""
               }`}
               onClick={(e) => {
                 e.preventDefault();
